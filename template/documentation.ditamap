@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+  "../dtd/map.dtd">
+<map title="Swift Mailer Documentation">
+  <topicref href="topics/introduction.xml" type="topic">
+    <topicref href="concepts/organization.xml" type="concept"/>
+  </topicref>
+</map>

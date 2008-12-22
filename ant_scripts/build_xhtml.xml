@@ -1,0 +1,25 @@
+<!-- Ant build file for Swift Mailer Documentation -->
+<project name="Swift Mailer Documentation" default="dita2xhtml">
+  
+  <!-- Config settings -->
+  <property name="path" value="." />
+  <property name="outputdir" value="${path}/output" />
+  <property environment="env" />
+  <property name="toolkit_dir" value="${env.DITA_DIR}" />
+  <property name="lib_dir" value="${toolkit_dir}/lib" />
+  <property name="template_dir" value="${path}/template" />
+  <property name="mapfile" value="${template_dir}/documentation.ditamap" />
+  
+  <!-- Path reference for dita-ot jars -->
+  <path id="path.jars">
+    <fileset dir="${lib_dir}">
+      <include name="*.jar" />                                                  
+    </fileset>
+  </path>
+  
+  <!-- Process the XHTML output -->
+  <target name="dita2xhtml">
+    
+  </target>
+  
+</project>

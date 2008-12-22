@@ -1,0 +1,32 @@
+Swift Mailer Documentation
+--------------------------
+
+This repository contains DITA source files for the Swift Mailer
+Documentation.
+
+In order to do anything with this source you will need a copy
+of DITA Open Toolkit (DITA-OT) which is available free online:
+
+http://dita-ot.sourceforge.net/
+
+You also need Java JDK 1.4.2 or higher and Ant 1.5 or higher.
+
+Once you have an extracted copy of the toolkit somewhere on disk,
+you need to open a command line window (such as Terminal.app on
+Mac OS X or cmd.exe on Windows) and set an environment variable
+mapping $DITA_DIR to the path where you extracted DITA-OT.
+
+If you have the correct $DITA_DIR in your environment, you should
+be able to build the documentation as XHTML or as PDF by running
+Ant.
+
+  -$  cd swiftmailer-docs
+  -$  ant -f ant_scripts/build.xml dita2xhtml
+
+You may substitute "dita2xhtml" with "dita2pdf" in the above command
+if you want a PDF copy.
+
+The output files will be placed in the "output/" directory.
+
+EoM
+
