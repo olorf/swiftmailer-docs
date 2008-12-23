@@ -46,7 +46,7 @@
       <arg value="/copycss:${args.copycss}" />
       <arg value="/css:${args.css}" />
       <arg value="/csspath:${args.csspath}" />
-<!--      <arg value="/xsl:${args.xsl}" /> -->
+      <arg value="/xsl:${args.xsl}" />
       <arg value="/xhtmltoc:${args.xhtmltoc}" />
     </java>
     <copy todir="${output.dir}">

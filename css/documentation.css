@@ -9,19 +9,20 @@ body
 
 a
 {
-  color: #59595c;
+  color: #659624;
   text-decoration: underline;
 }
 
 a:hover
 {
   background-color: #acdc6c;
+  color: #59595c;
   text-decoration: none;
 }
 
 a:visited
 {
-  color: #939598;
+  color: #808285;
 }
 
 a:visited:hover
