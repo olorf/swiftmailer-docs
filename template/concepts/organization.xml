@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
-  "../dtd/concept.dtd">
+  "../../dtd/concept.dtd">
 <concept id="organization" xml:lang="en-us">
   <title>Organization of this Book</title>
   <conbody>

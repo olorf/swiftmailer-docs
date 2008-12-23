@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
-  "../dtd/topic.dtd">
+  "../../dtd/topic.dtd">
 <topic id="introduction" xml:lang="en-us">
   <title>Introduction</title>
   <shortdesc>An introduction to Swift Mailer and this document</shortdesc>
