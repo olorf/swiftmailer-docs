@@ -1,0 +1,40 @@
+<!-- Ant build file for Swift Mailer Documentation -->
+<project name="Swift Mailer Documentation" default="dita2pdf2">
+  
+  <!-- Config settings -->
+  <property environment="env" />
+  <property name="path" value="." />
+  <property name="base" value="${path}/.." />
+  <property name="output.dir" value="${base}/output/pdf" />
+  <property name="dita.temp.dir" value="${base}/temp" />
+  <property name="clean.temp" value="yes" />
+  <property name="dita.dir" value="${env.DITA_DIR}" />
+  <property name="dita.lib.dir" value="${dita.dir}/lib" />
+  <property name="template.dir" value="${base}/template" />
+  <property name="args.input" value="${template.dir}/documentation.ditamap" />
+  <property name="transtype" value="pdf" />
+  <property name="validate" value="yes" />
+  
+  <!-- Path reference for dita-ot jars -->
+  <path id="path.jars">
+    <fileset dir="${dita.lib.dir}">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+  
+  <!-- Process the PDF output -->
+  <target name="dita2pdf2">
+    <property name="classpath" refid="path.jars" />
+    <java jar="${dita.lib.dir}/dost.jar" classpathref="path.jars" fork="true">
+      <env key="CLASSPATH" value="${classpath}" />
+      <arg value="/i:${args.input}" />
+      <arg value="/transtype:${transtype}" />
+      <arg value="/ditadir:${dita.dir}" />
+      <arg value="/outdir:${output.dir}" />
+      <arg value="/tempdir:${dita.temp.dir}" />
+      <arg value="/validate:${validate}" />
+      <arg value="/cleantemp:${clean.temp}" />
+    </java>
+  </target>
+  
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../dtd/concept.dtd">
+<concept id="system-requirements" xml:lang="en-us">
+  <title>System Requirements</title>
+  <shortdesc>Minimum system requirements for using Swift Mailer.</shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-22"/>
+      <revised modified="2008-December-2"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>system requirements</keyword>
+        <keyword>pre-requisites</keyword>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      Historically, Swift Mailer has supported both PHP 4 and PHP 5 by following a parallel
+      development workflow.  Now in it's fourth major version, with PHP 4 officially unsupported
+      by it's developers at Zend, Swift Mailer will only operate on servers running PHP 5.2 or
+      higher.
+    </p>
+    <p>
+      The basic requirements to operate Swift Mailer are extremely minimal and fairly obvious.  The
+      library aims to work with as many projects as possible:
+      <ul>
+        <li>PHP 5.2 or higher, with the SPL extension (standard)</li>
+        <li>Network access to connect to remote SMTP servers (default, port 25)</li>
+        <li>Approx 2MB memory free when using Disk Caching</li>
+        <li>Approx (1.3 x $attachment_size) MB of memory free when temporary file access not available</li>
+      </ul>
+    </p>
+  </conbody>
+</concept>

@@ -5,4 +5,8 @@
   <topicref href="topics/introduction.xml" type="topic">
     <topicref href="concepts/organization.xml" type="concept"/>
   </topicref>
+
+  <topicref href="topics/overview.xml" type="topic">
+    <topicref href="concepts/system-requirements.xml" type="concept"/>
+  </topicref>
 </map>
