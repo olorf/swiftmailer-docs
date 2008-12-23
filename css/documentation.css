@@ -1,0 +1,46 @@
+/** Style rules for XHTML Documentation **/
+
+body
+{
+  background: #fff;
+  font-family: tahoma, verdana, sans-serif;
+  color: #59595c;
+}
+
+a
+{
+  color: #59595c;
+  text-decoration: underline;
+}
+
+a:hover
+{
+  background-color: #acdc6c;
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: #939598;
+}
+
+a:visited:hover
+{
+  color: #59595c;
+}
+
+h1
+{
+  display: block;
+  background: #fff url(../images/swift-logo-white-small.gif) right no-repeat;
+  height: 60px;
+}
+
+div#swift_doc_frontpage
+{
+  display: block;
+  height: 400px;
+  background-image: url(../images/swift-logo-white-bg.gif);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}

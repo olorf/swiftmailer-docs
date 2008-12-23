@@ -20,11 +20,13 @@ If you have the correct $DITA_DIR in your environment, you should
 be able to build the documentation as XHTML or as PDF by running
 Ant.
 
-  -$  cd swiftmailer-docs
-  -$  ant -f ant_scripts/build.xml dita2xhtml
+Here's the *nix version...
 
-You may substitute "dita2xhtml" with "dita2pdf" in the above command
-if you want a PDF copy.
+  -$  export DITA_DIR=/path/to/dita-ot
+  -$  cd swiftmailer-docs
+  -$  ant -f ant_scripts/build_xhtml.xml
+  -$  # or for PDF format
+  -$  ant -f ant_scripts/build_pdf.xml
 
 The output files will be placed in the "output/" directory.
 

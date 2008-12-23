@@ -5,6 +5,10 @@
   <property environment="env" />
   <property name="path" value="." />
   <property name="base" value="${path}/.." />
+  <property name="css.dir" value="${base}/css" />
+  <property name="xsl.dir" value="${base}/xsl" />
+  <property name="build.dir" value="${base}/buildfiles" />
+  <property name="build.xhtml.dir" value="${build.dir}/xhtml" />  
   <property name="output.dir" value="${base}/output/xhtml" />
   <property name="dita.temp.dir" value="${base}/temp" />
   <property name="clean.temp" value="yes" />
@@ -12,6 +16,11 @@
   <property name="dita.lib.dir" value="${dita.dir}/lib" />
   <property name="template.dir" value="${base}/template" />
   <property name="args.input" value="${template.dir}/documentation.ditamap" />
+  <property name="args.copycss" value="yes" />
+  <property name="args.css" value="${css.dir}/documentation.css" />
+  <property name="args.csspath" value="css" />
+  <property name="args.xsl" value="${xsl.dir}/dita2xhtml.xsl" />
+  <property name="args.xhtmltoc" value="toc" />
   <property name="transtype" value="xhtml" />
   <property name="validate" value="yes" />
   
@@ -34,7 +43,15 @@
       <arg value="/tempdir:${dita.temp.dir}" />
       <arg value="/validate:${validate}" />
       <arg value="/cleantemp:${clean.temp}" />
+      <arg value="/copycss:${args.copycss}" />
+      <arg value="/css:${args.css}" />
+      <arg value="/csspath:${args.csspath}" />
+<!--      <arg value="/xsl:${args.xsl}" /> -->
+      <arg value="/xhtmltoc:${args.xhtmltoc}" />
     </java>
+    <copy todir="${output.dir}">
+      <fileset dir="${build.xhtml.dir}" />
+    </copy>
   </target>
   
 </project>

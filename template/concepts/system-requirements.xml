@@ -20,6 +20,12 @@
         <keyword>php</keyword>
         <keyword>system requirements</keyword>
         <keyword>pre-requisites</keyword>
+        <indexterm>pre-requisites</indexterm>
+        <indexterm>
+          system requirements
+          <indexterm>PHP version</indexterm>
+          <indexterm>memory requirements</indexterm>
+        </indexterm>
       </keywords>
     </metadata>
   </prolog>
