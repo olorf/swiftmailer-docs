@@ -82,3 +82,20 @@ div#swift_doc_frontpage
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+div#swift_doc_info
+{
+  text-align: center;
+}
+
+div#swift_doc_info h1
+{
+  background: none;
+  height: auto;
+}
+
+div#swift_doc_info cite
+{
+  font-weight: normal;
+  font-size: 1em;
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../../dtd/concept.dtd">
+<concept id="encoders" xml:lang="en-us">
+  <title>Encoders</title>
+  <shortdesc>
+    Encoders are used to transform the content of Messages generated in Swift Mailer
+    into a format that is safe to send across the internet and that conforms to RFC
+    specifications.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-25"/>
+      <revised modified="2008-December-25"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>encoders</keyword>
+        <keyword>base64</keyword>
+        <keyword>quoted printable</keyword>
+        <indexterm>
+          encoders
+          <indexterm>for mime entities</indexterm>
+          <indexterm>for headers</indexterm>
+          <indexterm>base64</indexterm>
+          <indexterm>quoted-printable</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="about">
+      <p>
+        Generally speaking you will not need to interact with the Encoders in Swift Mailer &#8211;
+        the correct settings will be handled by the library itself.  However they are probably worth
+        a brief mention in the event that you do want to play with them.
+      </p>
+      <p>
+        Both the Headers and the body of all MIME entities (including the Message itself) use Encoders
+        to ensure the data they contain can be sent over the internet without becoming corrupted or
+        misinterpreted.
+      </p>
+      <p>
+        There are two types of Encoder: Base64 and Quoted-Printable.
+      </p>
+    </section>
+    
+    <section id="base64">
+      <title>The Base64 Encoding Scheme</title>
+      <p>
+        Base64 encoding is provided by the <codeph>Swift_Encoder_Base64Encoder</codeph> class which is
+        subclassed to produce slightly more targeted encoders for the Headers and the body respectively.
+      </p>
+      <p>
+        Entities that use the Base64 encoding scheme are those which contain binary data &#8211;
+        specifically attachment data contained in a <codeph>Swift_Attachment</codeph> or a
+        <codeph>Swift_EmbeddedFile</codeph>.
+      </p>
+      <p>
+        Although the functionality exists, by default Headers do not make use of Base64 encoding
+        because it is not intended for text content and obfuscates text to the extent it would
+        not be understood by a human if the message is received corrupt and the Headers become visible.
+      </p>
+    </section>
+    
+    <section id="quoted-printable">
+      <title>The Quoted-Printable Encoding Scheme</title>
+      <p>
+        Quoted-Printable (or QP for short) encoding is provided by the <codeph>Swift_Encoder_QpEncoder</codeph>
+        class which is subclassed to produce slightly more targeted encoders for the Headers and the body respectively.
+      </p>
+      <p>
+        Entities that use the QP encoding scheme are those which contain text data, such as the Message itself
+        and MIME parts attached to the message.
+      </p>
+      <p>
+        QP encoding is only used if characters outside of the US-ASCII (standard US Keyboard) range
+        are found in the text.  It is considered "mostly" readable by humans since almost
+        all ASCII characters are left in their unencoded form.
+      </p>
+      <p>
+        QP encoding may be used in the Headers of a MIME entity (such as in the Subject line of a Message)
+        if non-ASCII characters are found in the text.
+      </p>
+    </section>
+    
+  </conbody>
+</concept>

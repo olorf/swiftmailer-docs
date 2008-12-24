@@ -12,6 +12,7 @@
       <topicref href="concepts/components/mailer.xml" type="concept"/>
       <topicref href="concepts/components/transports.xml" type="concept"/>
       <topicref href="concepts/components/mime.xml" type="concept"/>
+      <topicref href="concepts/components/encoders.xml" type="concept"/>
     </topicref>
   </topicref>
 </map>
