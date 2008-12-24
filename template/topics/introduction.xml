@@ -3,7 +3,9 @@
   "../../dtd/topic.dtd">
 <topic id="introduction" xml:lang="en-us">
   <title>Introduction</title>
-  <shortdesc>An introduction to Swift Mailer and this document</shortdesc>
+  <shortdesc>
+    Swift Mailer is a component-based library for sending e-mails from PHP 5 applications.
+  </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
     <copyright>

@@ -9,8 +9,9 @@
   <topicref href="topics/overview.xml" type="topic">
     <topicref href="concepts/system-requirements.xml" type="concept"/>
     <topicref href="topics/components.xml" type="topic">
-      <topicref href="concepts/component-mailer.xml" type="concept"/>
-      <topicref href="concepts/component-transports.xml" type="concept"/>
+      <topicref href="concepts/components/mailer.xml" type="concept"/>
+      <topicref href="concepts/components/transports.xml" type="concept"/>
+      <topicref href="concepts/components/mime.xml" type="concept"/>
     </topicref>
   </topicref>
 </map>

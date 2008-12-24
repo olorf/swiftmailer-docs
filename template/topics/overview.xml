@@ -3,7 +3,10 @@
   "../../dtd/topic.dtd">
 <topic id="overview" xml:lang="en-us">
   <title>Library Overview</title>
-  <shortdesc>A broad-scoped view of the components that make up Swift Mailer</shortdesc>
+  <shortdesc>
+    Most features (and more) of your every day mail client software are provided by
+    Swift Mailer, using object-oriented PHP code as the interface.
+  </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
     <copyright>

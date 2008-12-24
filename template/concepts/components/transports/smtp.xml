@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../../../dtd/concept.dtd">
+<concept id="smtp" xml:lang="en-us">
+  <title>SMTP Transport</title>
+  <shortdesc>For sending messages over SMTP</shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-24"/>
+      <revised modified="2008-December-24"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>transports</keyword>
+        <keyword>swift_smtptransport</keyword>
+        <keyword>smtp</keyword>
+        <indexterm>
+          transports
+          <indexterm>SMTP</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="about">
+      <title>About the SMTP Transport</title>
+      <p>
+        The SMTP Transport, <codeph>Swift_SmtpTransport</codeph> is without doubt the most commonly
+        used Transport because it will work on 99% of web servers.  All the server
+        needs is the ability to connect to a remote (or even local) SMTP server on
+        the correct port number (usually 25).
+      </p>
+      <p>
+        SMTP servers often require users to authenticate with a username and password
+        before any mail can be sent to other domains.  This is easily achieved using
+        Swift Mailer with the SMTP Transport.
+      </p>
+      <p>
+        SMTP is a protocol &#8211; in other words it's a "way" of communicating a job
+        to be done (i.e. sending a message).  The SMTP protocol is the fundamental
+        basis on which messages are delivered all over the internet 7 days a week,
+        365 days a year.  For this reason it's the most "direct" method of sending
+        messages you can use and it's the one that will give you the most power and
+        feedback (such as delivery failures) when using Swift Mailer.
+      </p>
+      <p>
+        Because SMTP is generally run as a remote service (i.e. you connect to it
+        over the network/internet) it's extremely portable from server-to-server.  You
+        can easily store the SMTP server address and port number in a configuration file
+        within your application and adjust the settings accordingly if the code is moved
+        or if the SMTP server is changed.
+      </p>
+      <p>
+        Some SMTP servers &#8211; Google for example &#8211; use encryption for security
+        reasons.  Swift Mailer supports using both SSL and TLS encryption settings.
+      </p>
+    </section>
+  </conbody>
+</concept>

@@ -3,7 +3,13 @@
   "../../dtd/concept.dtd">
 <concept id="system-requirements" xml:lang="en-us">
   <title>System Requirements</title>
-  <shortdesc>Minimum system requirements for using Swift Mailer.</shortdesc>
+  <shortdesc>
+    The basic requirements to operate Swift Mailer are extremely minimal and easily achieved.
+    Historically, Swift Mailer has supported both PHP 4 and PHP 5 by following a parallel
+    development workflow.  Now in it's fourth major version, and with PHP 4 support officially
+    dropped by its makers at Zend, Swift Mailer operates on servers
+    running PHP 5.2 or higher.
+  </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
     <copyright>
@@ -31,14 +37,7 @@
   </prolog>
   <conbody>
     <p>
-      Historically, Swift Mailer has supported both PHP 4 and PHP 5 by following a parallel
-      development workflow.  Now in it's fourth major version, and with PHP 4 support officially
-      dropped by its makers at Zend, Swift Mailer operates on servers
-      running PHP 5.2 or higher.
-    </p>
-    <p>
-      The basic requirements to operate Swift Mailer are extremely minimal and easily achieved.  The
-      library aims to work with as many PHP 5 projects as possible:
+      The library aims to work with as many PHP 5 projects as possible:
       <ul>
         <li>PHP 5.2 or higher, with the SPL extension (standard)</li>
         <li>Limited network access to connect to remote SMTP servers</li>
