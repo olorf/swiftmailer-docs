@@ -32,19 +32,23 @@
   <conbody>
     <p>
       Historically, Swift Mailer has supported both PHP 4 and PHP 5 by following a parallel
-      development workflow.  Now in it's fourth major version, with PHP 4 officially unsupported
-      by it's developers at Zend, Swift Mailer will only operate on servers running PHP 5.2 or
-      higher.
+      development workflow.  Now in it's fourth major version, and with PHP 4 support officially
+      dropped by its makers at Zend, Swift Mailer operates on servers
+      running PHP 5.2 or higher.
     </p>
     <p>
-      The basic requirements to operate Swift Mailer are extremely minimal and fairly obvious.  The
-      library aims to work with as many projects as possible:
+      The basic requirements to operate Swift Mailer are extremely minimal and easily achieved.  The
+      library aims to work with as many PHP 5 projects as possible:
       <ul>
         <li>PHP 5.2 or higher, with the SPL extension (standard)</li>
-        <li>Network access to connect to remote SMTP servers (default, port 25)</li>
-        <li>Approx 2MB memory free when using Disk Caching</li>
-        <li>Approx (1.3 x $attachment_size) MB of memory free when temporary file access not available</li>
+        <li>Limited network access to connect to remote SMTP servers</li>
+        <li>8 MB or more memory limit (Swift Mailer uses just under 1.6 MB)</li>
       </ul>
     </p>
   </conbody>
+  <related-links>
+    <link href="http://www.php.net/archive/2007.php#2007-07-13-1" format="html">
+      <linktext>PHP 4 end of life announcement on php.net</linktext>
+    </link>
+  </related-links>
 </concept>

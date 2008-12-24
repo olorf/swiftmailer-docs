@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../dtd/concept.dtd">
+<concept id="component-transports" xml:lang="en-us">
+  <title>Transports</title>
+  <shortdesc>The bit that actually does the sending.</shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-24"/>
+      <revised modified="2008-December-24"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>transports</keyword>
+        <keyword>smtp</keyword>
+        <keyword>sendmail</keyword>
+        <keyword>mail</keyword>
+        <keyword>load balanced</keyword>
+        <keyword>failover</keyword>
+        <keyword>mta</keyword>
+        <keyword>mail transfer agent</keyword>
+        <indexterm>
+          transports
+          <indexterm>SMTP</indexterm>
+          <indexterm>Sendmail</indexterm>
+          <indexterm>Mail</indexterm>
+          <indexterm>LoadBalanced</indexterm>
+          <indexterm>Failover</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      Transports are the classes in Swift Mailer that are responsible to communicating with a service
+      in order to deliver a Message.  There are several types of Transport in Swift Mailer, all of which
+      implement that Swift_Transport interface and offer underlying start(), stop() and send() methods.
+    </p>
+    <p>
+      Typically you will not need to know how a Transport works under-the-surface, you will only need
+      to know how to create an instance of one, and which one to use for your environment.
+    </p>
+
+    <simpletable>
+      <sthead>
+        <stentry>Class</stentry>
+        <stentry>Features</stentry>
+        <stentry>Pros/cons</stentry>
+      </sthead>
+      <strow>
+       <stentry>Swift_SmtpTransport</stentry>
+       <stentry>Sends messages over SMTP; Supports Authentication; Supports Encryption</stentry>
+       <stentry>Very portable; Pleasingly predictable results; Provides good feedback</stentry>
+      </strow>
+      <strow>
+       <stentry>Swift_SendmailTransport</stentry>
+       <stentry>Communicates with a locally installed sendmail executable (Linux/UNIX)</stentry>
+       <stentry>Quick time-to-run;  Provides less-accurate feedback than SMTP; Requires sendmail installation</stentry>
+      </strow>
+      <strow>
+       <stentry>Swift_MailTransport</stentry>
+       <stentry>Uses PHP's built-in mail() function</stentry>
+       <stentry>Very portable; Potentially unpredictable results; Provides extremely weak feedback</stentry>
+      </strow>
+      <strow>
+       <stentry>Swift_FailoverTransport</stentry>
+       <stentry>Works in conjunction with a collection of the other Transports to provides high-availability</stentry>
+       <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down)</stentry>
+      </strow>
+      <strow>
+       <stentry>Swift_LoadbalanceTransport</stentry>
+       <stentry>Cycles through a collection of the other Transports to manage load-reduction</stentry>
+       <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down); Keeps the load of remote services down by spreading the work</stentry>
+      </strow>
+    </simpletable>
+
+  </conbody>
+</concept>

@@ -29,13 +29,16 @@
   </prolog>
   <body>
     <p>
-      In this chapter we will take a brief tour of the various components which all put together
-      form Swift Mailer as a whole.  You will learn some key terminology used through the rest of
-      this books and you will gain some understanding of the classes you will have access to.
+      In this chapter we will take a short tour of the various components, which put together
+      form the Swift Mailer library as a whole.  You will learn key terminology used throughout
+      the rest of this book and you will gain a little understanding of the classes you will work
+      with as you integrate Swift Mailer into your application.
     </p>
     <p>
-      In the chapters following this one we will look at many of these components in more detail,
-      working with short code examples as we go.
+      This chapter is intended to prepare you for the information contained in the subsequent
+      chapters of this book.  You may choose to skip this chapter if you are fairly technically
+      minded, though it is likely to save you some time in the long run if you at least read
+      between the lines here.
     </p>
   </body>
 </topic>
