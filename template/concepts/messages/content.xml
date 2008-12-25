@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../../dtd/concept.dtd">
+<concept id="message-content" xml:lang="en-us">
+  <title>Adding Content to Your Message</title>
+  <shortdesc>
+    The fundamental elements of content that are presented to the recipient are the
+    subject and the body of the message.  They are set with setSubject() and setBody().
+    You can specify alternative bodies by using addPart().
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-25"/>
+      <revised modified="2008-December-25"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <indexterm>
+          messages
+          <indexterm>creating messages</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p />
+  </conbody>
+</concept>

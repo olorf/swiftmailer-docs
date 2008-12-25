@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../../dtd/concept.dtd">
+<concept id="plugins" xml:lang="en-us">
+  <title>Plugins</title>
+  <shortdesc>
+    Plugins exist to extend, or modify the behaviour of Swift Mailer.  They respond to Events
+    that are fired within the Transports during sending.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-25"/>
+      <revised modified="2008-December-25"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>events</keyword>
+        <indexterm>plugins</indexterm>
+        <indexterm>events</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="about">
+      <p>
+        There are a number of Plugins provided as part of the base Swift Mailer package
+        and they all follow a common interface to respond to Events fired within the
+        library.  Interfaces are provided to "listen" to each type of Event fired and
+        to act as desired when a listened-to Event occurs.
+      </p>
+      <p>
+        Events originate from the Transport classes.  Brief details follow.
+      </p>
+      
+      <simpletable>
+        
+        <sthead>
+          <stentry>Event (<codeph>Swift_Events_&#8230;</codeph>)</stentry>
+          <stentry>Listener (<codeph>Swift_Events_&#8230;</codeph>)</stentry>
+          <stentry>Details</stentry>
+        </sthead>
+        
+        <strow>
+          <stentry><codeph>SendEvent</codeph></stentry>
+          <stentry><codeph>SendListener</codeph></stentry>
+          <stentry>Fired to the <codeph>beforeSendPerformed()</codeph> and <codeph>sendPerformed()</codeph>
+            methods of the <codeph>SendListener</codeph> during sending a Message</stentry>
+        </strow>
+        
+        <strow>
+          <stentry><codeph>CommandEvent</codeph></stentry>
+          <stentry><codeph>CommandListener</codeph></stentry>
+          <stentry>Fired to the <codeph>commandSent()</codeph> method of the
+            <codeph>CommandListener</codeph> following each command in SMTP communication</stentry>
+        </strow>
+        
+        <strow>
+          <stentry><codeph>ResponseEvent</codeph></stentry>
+          <stentry><codeph>ResponseListener</codeph></stentry>
+          <stentry>Fired to the <codeph>responseReceived()</codeph> method of the
+            <codeph>ResponseListener</codeph> following each response in SMTP communication</stentry>
+        </strow>
+        
+        <strow>
+          <stentry><codeph>TransportChangeEvent</codeph></stentry>
+          <stentry><codeph>TransportChangeListener</codeph></stentry>
+          <stentry>Fired to the <codeph>transportStarted()</codeph> and <codeph>transportStopped()</codeph>
+            methods of the
+            <codeph>TransportChangeListener</codeph> when the state of the current Transport is changed</stentry>
+        </strow>
+        
+        <strow>
+          <stentry><codeph>TransportExceptionEvent</codeph></stentry>
+          <stentry><codeph>TransportExceptionListener</codeph></stentry>
+          <stentry>Fired to the <codeph>exceptionThrown()</codeph> method of the
+            <codeph>TransportExceptionListener</codeph> when an Exception is thrown due to an error in the
+            Transport layer.  It is possible to trap this Exception and prevent it from bubbling up to
+            the top of the stack.</stentry>
+        </strow>
+        
+      </simpletable>
+      
+      <p>
+        Although several plugins are provided with Swift Mailer out-of-the-box, the Events system has been
+        specifically designed to make it easy for experienced object-oriented developers to write their
+        own plugins in order to achieve goals that may not be possible with the base library.
+      </p>
+    </section>
+  </conbody>
+</concept>
