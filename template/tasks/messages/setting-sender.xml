@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../../dtd/task.dtd">
+<task id="setting-sender" xml:lang="en-us">
+  <title>Setting the <codeph>Sender:</codeph> Address</title>
+  <shortdesc>
+    A <codeph>Sender:</codeph> address specifies who sent the message and is set with the
+    <codeph>setSender()</codeph> method of the message.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>sender address</keyword>
+        <indexterm>
+          messages
+          <indexterm>sender address</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To set the <codeph>Sender:</codeph> address:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Call the <codeph>setSender()</codeph> method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        The <codeph>Sender:</codeph> address is visible in the message headers and will
+        be seen by the recipients.
+      </p>
+      <p>
+        This address will be used as the <codeph>Return-Path:</codeph> unless otherwise
+        specified.
+      </p>
+      <note conref="./setting-from.xml#setting-from/multiple_from" />
+      <note id="single_sender">
+        You must not set more than one sender address on a message because it's not
+        possible for more than one person to send a single message.
+      </note>
+    </result>
+    
+    <example id="setsender">
+<codeblock><![CDATA[$message->setSender('your@address.tld');]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

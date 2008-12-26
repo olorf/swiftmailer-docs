@@ -35,14 +35,14 @@
         To set the subject of your Message:
       </p>
     </context>
-    <steps>
+    <steps-unordered>
       <step>
         <cmd>
           Call the <codeph>setSubject()</codeph> method of the Message, or specify it
           at the time you create the message.
         </cmd>
       </step>
-    </steps>
+    </steps-unordered>
     
     <example id="setsubject">
       <title>Setting the Subject Line</title>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../../dtd/task.dtd">
+<task id="attaching-files" xml:lang="en-us">
+  <title>Attaching Existing Files</title>
+  <shortdesc>
+    Files that already exist, either on disk or at a URL can be attached to a message
+    with just one line of code, using Swift_Attachment::fromPath().
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>attachments</keyword>
+        <indexterm>
+          messages
+          <indexterm>attachments</indexterm>
+        </indexterm>
+        <indexterm>
+          attachments
+          <indexterm>from files</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        You can attach files that exist locally, or if your PHP installation has
+        <codeph>allow_url_fopen</codeph> turned on you can attach files from other
+        websites.
+      </p>
+      <p>
+        To attach an existing file:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create an attachment with <codeph>Swift_Attachment::fromPath()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Add the attachment to the message with <codeph>attach()</codeph>.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        The attachment will be presented to the recipient as a downloadable file
+        with the same filename as the one you attached.
+      </p>
+    </result>
+    
+    <example id="attach_frompath">
+<codeblock><![CDATA[
+//Create the attachment
+// * Note that you can technically leave the content-type parameter out
+$attachment = Swift_Attachment::fromPath('/path/to/image.jpg', 'image/jpeg');  
+
+//Attach it to the message
+$message->attach($attachment);
+
+
+//The two statements above could be written in one line instead
+$message->attach(Swift_Attachment::fromPath('/path/to/image.jpg'));
+
+
+//You can attach files from a URL if allow_url_fopen is on in php.ini
+$message->attach(Swift_Attachment::fromPath('http://site.tld/logo.png'));
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

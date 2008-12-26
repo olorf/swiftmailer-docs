@@ -35,6 +35,16 @@
   <taskbody>
     <context>
       <p>
+        The body of a message is the main part that is read by the user.  Often people
+        want to send a message in HTML format (<codeph>text/html</codeph>), other times
+        people want to send in plain text (<codeph>text/plain</codeph>), or sometimes people
+        want to send both versions and allow the recipient to chose how they view the message.
+      </p>
+      <p>
+        As a rule of thumb, if you're going to send a HTML email, always include a plain-text
+        equivalent of the same content so that users who prefer to read plain text can do so.
+      </p>
+      <p>
         To set the body of your Message:
       </p>
     </context>
@@ -51,6 +61,15 @@
         </cmd>
       </step>
     </steps>
+    
+    <result>
+      <p>
+        If the recipient's mail client offers preferences for displaying text vs. HTML then
+        the mail client will present that part to the user where available.  In other cases
+        the mail client will display the "best" part it can - usually HTML if you've included
+        HTML.
+      </p>
+    </result>
     
     <example id="setbody">
       <title>Setting the Body &#8211; and adding alternative body content</title>

@@ -40,9 +40,10 @@ a:visited:hover
 h1
 {
   display: block;
-  background: #fff url(../images/swift-logo-white-small.gif) right no-repeat;
+  background: #fff url(../images/swift-logo-white-small.gif) top right no-repeat;
   font-weight: normal;
   height: 60px;
+  padding-top: 10px;
 }
 
 div.section h2
