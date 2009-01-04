@@ -67,7 +67,7 @@
         <strow>
           <stentry><codeph>Return-Path:</codeph></stentry>
           <stentry>Specifies where bounces should go (Swift Mailer reads this for other uses)</stentry>
-          <stentry><codeph>string getReturnPath()</codeph> / <codeph>setReturnPath()</codeph></stentry>
+          <stentry><codeph>getReturnPath()</codeph> / <codeph>setReturnPath()</codeph></stentry>
         </strow>
         
         <strow>
@@ -146,8 +146,8 @@
         message with <codeph>setBody()</codeph>.
       </p>
       <p>
-        Setting methods is simple.  You just call them like functions, but using the object
-        operator <codeph><![CDATA[->]]></codeph> to do so.  If you've created a message object
+        Calling methods is simple.  You just call them like functions, but using the object
+        operator "<codeph><![CDATA[->]]></codeph>" to do so.  If you've created a message object
         and called it <codeph>$message</codeph> then you'd set a subject on it like so:
         
 <codeblock><![CDATA[

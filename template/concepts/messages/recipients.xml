@@ -2,7 +2,7 @@
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
   "../../../dtd/concept.dtd">
 <concept id="message-recipients" xml:lang="en-us">
-  <title>Adding Recipients for Your Message</title>
+  <title>Adding Recipients to Your Message</title>
   <shortdesc>
     Recipients are specified within the message itself via setTo(), setCc() and setBcc().
     Swift Mailer reads these recipients from the message when it gets sent so that it knows

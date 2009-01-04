@@ -5,36 +5,46 @@ body
   background: #fff;
   font-family: tahoma, verdana, sans-serif;
   font-size: 0.8em;
-  color: #59595c;
+  color: #3b3b3d;
   line-height: 1.4em;
 }
 
 a
 {
-  color: #659624;
+  color: #527c19;
   text-decoration: underline;
 }
 
 a:hover
 {
   background-color: #acdc6c;
-  color: #59595c;
+  color: #3b3b3d;
   text-decoration: none;
 }
 
 a:visited
 {
-  color: #808285;
+  color: #444447;
 }
 
 a:visited:hover
 {
-  color: #59595c;
+  color: #3b3b3d;
+}
+
+a:active
+{
+  background: #ccc;
 }
 
 .topictitle1
 {
   font-size: 2.5em;
+}
+
+.sectiontitle
+{
+  color: #3b3b3d;
 }
 
 h1
@@ -46,33 +56,48 @@ h1
   padding-top: 10px;
 }
 
-div.section h2
+h2
 {
   display: block;
-  border-bottom: 1px solid #59595c;
-  color: #59595c;
+  color: #3b3b3d;
   font-size: 1.2em;
+}
+
+table
+{
+  border-width: 1px;
+  border-collapse: collapse;
+  border-color: #3b3b3d;
 }
 
 table th
 {
-  background: #659624;
-  color: #fff;
+  /*background: #659624;*/
+  background: #ccc;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
 }
 
-pre.codeblock
+.codeblock
 {
   display: block;
-  padding: 4px;
+  padding: 8px;
   margin: 2em 4em;
-  background: #ddd;
-  color: #000;
+  background: #222;
+  color: #22ee22;
 }
 
-samp.codeph
+.note
+{
+  display: block;
+  padding: 8px 60px 8px 8px;
+  margin: 1em 3em;
+  background: #eee url(../images/pen.png) top right no-repeat;
+  min-height: 60px;
+}
+
+.codeph
 {
   font-size: 1.1em;
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
-  "../../../../dtd/concept.dtd">
-<concept id="smtp" xml:lang="en-us">
-  <title>SMTP Transport</title>
-  <shortdesc>For sending messages over SMTP</shortdesc>
+  "../../../dtd/concept.dtd">
+<concept id="transport-smtp" xml:lang="en-us">
+  <title>The SMTP Transport</title>
+  <shortdesc>
+    The SMTP Transport sends messages over the (standardized) Simple Message Transfer
+    Protocol.  It can deal with encryption and authentication.
+  </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
     <copyright>
@@ -11,29 +14,28 @@
       <copyrholder>Chris Corbyn</copyrholder>
     </copyright>
     <critdates>
-      <created date="2008-December-24"/>
-      <revised modified="2008-December-24"/>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
     </critdates>
     <metadata>
       <keywords>
         <keyword>swift mailer</keyword>
         <keyword>php</keyword>
-        <keyword>transports</keyword>
-        <keyword>swift_smtptransport</keyword>
-        <keyword>smtp</keyword>
+        <keyword>smtp transport</keyword>
         <indexterm>
           transports
           <indexterm>SMTP</indexterm>
         </indexterm>
+        <indexterm>SMTP transport</indexterm>
       </keywords>
     </metadata>
   </prolog>
   <conbody>
     <section id="about">
-      <title>About the SMTP Transport</title>
       <p>
         The SMTP Transport, <codeph>Swift_SmtpTransport</codeph> is without doubt the most commonly
-        used Transport because it will work on 99% of web servers.  All the server
+        used Transport because it will work on 99% of web servers.<fn callout="[1]">I just made that number up,
+        but you get the idea.</fn> All the server
         needs is the ability to connect to a remote (or even local) SMTP server on
         the correct port number (usually 25).
       </p>

@@ -62,6 +62,8 @@ The body content itself</codeblock>
         various RFC documents.  Swift Mailer ensures that these specifications are followed by using
         various types of object, including Encoders and different Header types to generate the entity.
       </p>
+    </section>
+    <section>
       <p>
         Each MIME component implements the base <codeph>Swift_Mime_MimeEntity</codeph> interface, which
         offers methods for retrieving Headers, adding new Headers, changing the Encoder, updating

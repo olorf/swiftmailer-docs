@@ -6,6 +6,7 @@
   <property name="path" value="." />
   <property name="base" value="${path}/.." />
   <property name="css.dir" value="${base}/css" />
+  <property name="img.dir" value="${base}/images" />
   <property name="xsl.dir" value="${base}/xsl" />
   <property name="build.dir" value="${base}/buildfiles" />
   <property name="build.xhtml.dir" value="${build.dir}/xhtml" />  
@@ -51,6 +52,9 @@
     </java>
     <copy todir="${output.dir}">
       <fileset dir="${build.xhtml.dir}" />
+    </copy>
+    <copy todir="${output.dir}/images">
+      <fileset dir="${img.dir}" />
     </copy>
   </target>
   

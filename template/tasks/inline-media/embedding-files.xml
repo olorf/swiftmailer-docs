@@ -4,7 +4,7 @@
 <task id="embedding-files" xml:lang="en-us">
   <title>Embedding Existing Files</title>
   <shortdesc>
-    Files that already exist, either on disk or at a URL can be embedding in a message
+    Files that already exist, either on disk or at a URL can be embedded in a message
     with just one line of code, using Swift_EmbeddedFile::fromPath().
   </shortdesc>
   <prolog>

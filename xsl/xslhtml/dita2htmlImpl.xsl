@@ -2410,7 +2410,7 @@
   </xsl:variable>
   <xsl:choose>
     <xsl:when test="@frame='all' and $colsep='0' and $rowsep='0'">
-      <table cellpadding="4" cellspacing="0" border="1" class="tableborder">
+      <table cellpadding="4" cellspacing="0"  class="tableborder">
         <tr>
           <td>
             <xsl:value-of select="$newline"/>
@@ -2437,7 +2437,7 @@
       <xsl:value-of select="$newline"/>
     </xsl:when>
     <xsl:when test="not(@frame) and $colsep='0' and $rowsep='0'">
-      <table cellpadding="4" cellspacing="0" border="1" class="tableborder">
+      <table cellpadding="4" cellspacing="0"  class="tableborder">
         <tr>
           <td>
             <xsl:value-of select="$newline"/>

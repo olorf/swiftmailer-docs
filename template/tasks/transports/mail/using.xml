@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../../../dtd/task.dtd">
+<task id="using-mail" xml:lang="en-us">
+  <title>Using the Mail Transport</title>
+  <shortdesc>
+    To use the Mail Transport you simply need to call
+    <codeph>Swift_MailTransport::newInstance()</codeph>.  It's unlikely you'll
+    need to configure the Transport.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-27"/>
+      <revised modified="2008-December-27"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>sending</keyword>
+        <keyword>message</keyword>
+        <keyword>transport</keyword>
+        <keyword>mail function</keyword>
+        <indexterm>
+          transports
+          <indexterm>mail (function)</indexterm>
+        </indexterm>
+        <indexterm>mail (function) transport</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To use the Mail Transport:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Call <codeph>Swift_MailTransport::newInstance()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Use the returned object to create the Mailer.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        Messages will be sent using the <codeph>mail()</codeph> function
+      </p>
+      <note>
+        The <codeph>mail()</codeph> function can take a <codeph>$additional_parameters</codeph>
+        parameter.  Swift Mailer sets this to "<codeph>-f%s</codeph>" by default, where the "%s"
+        is substituted with the address of the sender (via a <codeph>sprintf()</codeph>) at send
+        time.  You may override this default by passing an argument to <codeph>newInstance()</codeph>.
+      </note>
+    </result>
+    
+    <example id="using_mail">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Transport
+$transport = Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+$mailer = Swift_Mailer::newInstance($transport);
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

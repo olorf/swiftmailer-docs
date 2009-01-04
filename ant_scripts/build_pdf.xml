@@ -11,6 +11,7 @@
   <property name="clean.temp" value="yes" />
   <property name="dita.dir" value="${env.DITA_DIR}" />
   <property name="dita.lib.dir" value="${dita.dir}/lib" />
+  <property name="xep.lib.dir" value="/Users/chris/XEP/lib" />
   <property name="template.dir" value="${base}/template" />
   <property name="args.input" value="${template.dir}/documentation.ditamap" />
   <property name="args.xsl" value="${xsl.dir}/dita2fo-shell.xsl" />
@@ -20,9 +21,13 @@
   
   <!-- Path reference for dita-ot jars -->
   <path id="path.jars">
+    <pathelement location="${dita.lib.dir}" />
     <fileset dir="${dita.lib.dir}">
       <include name="**/*.jar" />
     </fileset>
+    <fileset dir="${xep.lib.dir}">
+      <include name="**/*.jar" />
+    </fileset>    
   </path>
   
   <!-- Process the PDF output -->
@@ -37,7 +42,7 @@
       <arg value="/tempdir:${dita.temp.dir}" />
       <arg value="/validate:${validate}" />
       <arg value="/cleantemp:${clean.temp}" />
-      <arg value="/xsl:${args.xsl}" />
+<!--      <arg value="/xsl:${args.xsl}" />-->
       <arg value="/indexshow:${args.indexshow}" />
     </java>
   </target>

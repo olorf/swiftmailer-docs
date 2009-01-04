@@ -224,7 +224,7 @@ and if so, produce an associative link. -->
   </xsl:choose>
  </xsl:variable>
  <a name="{@id}">{<xsl:value-of select="$callout"/>}</a>
- <table border="1" cellpadding="6">
+ <table  cellpadding="6">
    <tr><td bgcolor="LightGrey">
      <xsl:apply-templates mode="process-syntaxdiagram"/>
    </td></tr>

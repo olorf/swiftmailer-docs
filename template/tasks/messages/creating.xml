@@ -76,7 +76,7 @@
     </steps>
     
     <example id="quickexample">
-      <title>Demonstrated in Code</title>
+      <title>Creating a Message</title>
 <codeblock><![CDATA[
 <?php
 

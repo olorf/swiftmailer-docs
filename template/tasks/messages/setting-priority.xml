@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../../dtd/task.dtd">
+<task id="setting-priority" xml:lang="en-us">
+  <title>Setting the Message Priority</title>
+  <shortdesc>
+    You can change the priority of the message with <codeph>setPriority()</codeph>.  Setting the
+    priority will not change the way your email is sent &#8211; it is purely an indicative setting
+    for the recipient.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>priority</keyword>
+        <indexterm>
+          messages
+          <indexterm>priority</indexterm>
+        </indexterm>
+        <indexterm>
+          message priority
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        The priority of a message is an indication to the recipient what significance it has.
+        Swift Mailer allows you to set the priority by calling the <codeph>setPriority</codeph>
+        method.  This method takes an integer value between 1 and 5:
+        <ol>
+          <li>Highest</li>
+          <li>High</li>
+          <li>Normal</li>
+          <li>Low</li>
+          <li>Lowest</li>
+        </ol>
+      </p>
+      <p>
+        To set the message priority:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Set the priority as an integer between 1 and 5 with the <codeph>setPriority()</codeph>
+          method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <example id="setreadreceiptto">
+<codeblock><![CDATA[
+//Indicate "High" priority
+$message->setPriority(2);
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

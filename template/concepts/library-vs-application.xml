@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../../dtd/concept.dtd">
+<concept id="library-vs-application" xml:lang="en-us">
+  <title>It's a Library!</title>
+  <shortdesc>
+    Swift Mailer is not an application &#8211; it's a library.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-January-04"/>
+      <revised modified="2009-January-04"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>library vs application</keyword>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      To most experienced developers this is probably an obvious point to make, but it's certainly
+      worth mentioning.  Many people often contact me having gotten the completely wrong end of the
+      stick in terms of what Swift Mailer is actually for.
+    </p>
+    <p>
+      It's not an application.  It does not have a graphical user interface.  It cannot be opened
+      in your web browser directly.
+    </p>
+    <p>
+      It's a library (or a framework if you like).  It provides a whole lot of classes that do some
+      very complicated things, so that you don't have to.  You "use" Swift Mailer within an application
+      so that your application can have the ability to send emails.
+    </p>
+    <p>
+      The component-based structure of the library means that you are free to implement it in a number
+      of different ways and that you can pick and choose what you want to use.
+    </p>
+    <p>
+      An application on the other hand (such as a blog or a forum) is already "put together" in a
+      particular way, (usually) provides a graphical user interface and most likely doesn't offer a
+      great deal of integration with your own application.
+    </p>
+    <p>
+      Embrace the structure of the library and use the components it offers to your advantage.  Learning
+      what the components do, rather than blindly copying and pasting existing code will put you in a
+      great position to build a powerful application!
+    </p>
+  </conbody>
+</concept>

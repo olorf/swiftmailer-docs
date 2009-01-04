@@ -52,44 +52,5 @@
       </p>
     </section>
     
-    <section id="base64">
-      <title>The Base64 Encoding Scheme</title>
-      <p>
-        Base64 encoding is provided by the <codeph>Swift_Encoder_Base64Encoder</codeph> class which is
-        subclassed to produce slightly more targeted encoders for the Headers and the body respectively.
-      </p>
-      <p>
-        Entities that use the Base64 encoding scheme are those which contain binary data &#8211;
-        specifically attachment data contained in a <codeph>Swift_Attachment</codeph> or a
-        <codeph>Swift_EmbeddedFile</codeph>.
-      </p>
-      <p>
-        Although the functionality exists, by default Headers do not make use of Base64 encoding
-        because it is not intended for text content and obfuscates text to the extent it would
-        not be understood by a human if the message is received corrupt and the Headers become visible.
-      </p>
-    </section>
-    
-    <section id="quoted-printable">
-      <title>The Quoted-Printable Encoding Scheme</title>
-      <p>
-        Quoted-Printable (or QP for short) encoding is provided by the <codeph>Swift_Encoder_QpEncoder</codeph>
-        class which is subclassed to produce slightly more targeted encoders for the Headers and the body respectively.
-      </p>
-      <p>
-        Entities that use the QP encoding scheme are those which contain text data, such as the Message itself
-        and MIME parts attached to the message.
-      </p>
-      <p>
-        QP encoding is only used if characters outside of the US-ASCII (standard US Keyboard) range
-        are found in the text.  It is considered "mostly" readable by humans since almost
-        all ASCII characters are left in their unencoded form.
-      </p>
-      <p>
-        QP encoding may be used in the Headers of a MIME entity (such as in the Subject line of a Message)
-        if non-ASCII characters are found in the text.
-      </p>
-    </section>
-    
   </conbody>
 </concept>

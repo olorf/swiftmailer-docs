@@ -56,7 +56,7 @@
         client knows how to display it.
       </p>
       <note>
-        If you try to set an attachment for a non-displayable file type such as a
+        If you try to create an inline attachment for a non-displayable file type such as a
         ZIP file, the mail client should just present the attachment as normal.
       </note>
     </result>

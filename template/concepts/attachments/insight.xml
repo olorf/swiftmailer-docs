@@ -134,7 +134,7 @@ SGVsbG8gV29ybGQhCg==
         it's not.  Just take a moment to look at the source here.  At the start of the message you
         can see that it's made up of, well &#8211; headers and a body.  It's the body that's gone all clever
         and show-offish here.  The body itself (when you look past the MIME boundary lines starting with
-        <codeph>--</codeph> is made up of, well, you guessed it &#8211; headers and a body!
+        "<codeph>--</codeph>") is made up of, well, you guessed it &#8211; headers and a body!
       </p>
       
       <p>

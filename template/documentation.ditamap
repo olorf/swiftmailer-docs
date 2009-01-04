@@ -4,7 +4,11 @@
 <map title="Swift Mailer User Guide">
   
   <topicref href="topics/introduction.xml" type="topic">
-    <topicref href="concepts/organization.xml" type="concept"/>
+    <topicref href="concepts/organization.xml" type="concept">
+      <topicref href="concepts/organization/codesamples.xml" type="concept" />
+    </topicref>
+    <topicref href="concepts/history.xml" type="concept" />
+    <topicref href="concepts/library-vs-application.xml" type="concept" />
   </topicref>
 
   <topicref href="topics/overview.xml" type="topic">
@@ -17,6 +21,24 @@
       <topicref href="concepts/components/plugins.xml" type="concept"/>
     </topicref>
   </topicref>
+  
+  <topicref href="topics/installing.xml" type="topic">
+    <topicref href="concepts/installing/package.xml" type="concept">
+      <topicref href="tasks/installing/package-extract.xml" type="task" />
+    </topicref>
+    <topicref href="concepts/installing/git.xml" type="concept">
+      <topicref href="tasks/installing/git-clone.xml" type="task" />
+    </topicref>
+    <topicref href="tasks/installing/uploading.xml" type="task" />
+  </topicref>
+  
+  <topicref href="topics/help-resources.xml" type="topic">
+    <topicref href="concepts/help/bugs.xml" type="concept" />
+    <topicref href="concepts/help/google-group.xml" type="concept" />
+    <topicref href="concepts/help/forum.xml" type="concept" />
+  </topicref>
+  
+  <topicref href="tasks/including.xml" type="task" />
   
   <topicref href="topics/messages.xml" type="topic">
     <topicref href="tasks/messages/creating.xml" type="task" />
@@ -47,6 +69,32 @@
       <topicref href="tasks/messages/setting-from.xml" type="task" />
       <topicref href="tasks/messages/setting-sender.xml" type="task" />
       <topicref href="tasks/messages/setting-returnpath.xml" type="task" />
+    </topicref>
+    <topicref href="tasks/messages/setting-readreceipt.xml" type="task" />
+    <topicref href="tasks/messages/setting-priority.xml" type="task" />
+  </topicref>
+  
+  <topicref href="topics/sending.xml" type="topic">
+    <topicref href="tasks/sending/sending.xml" type="task" />
+    <topicref href="concepts/transports/types.xml" type="concept">
+      <topicref href="concepts/transports/smtp.xml" type="concept">
+        <topicref href="tasks/transports/smtp/using.xml" type="task" />
+        <topicref href="tasks/transports/smtp/using-encryption.xml" type="task" />
+        <topicref href="tasks/transports/smtp/using-authentication.xml" type="task" />
+      </topicref>
+      <topicref href="concepts/transports/sendmail.xml" type="concept">
+        <topicref href="tasks/transports/sendmail/using.xml" type="task" />
+      </topicref>
+      <topicref href="concepts/transports/mail.xml" type="concept">
+        <topicref href="tasks/transports/mail/using.xml" type="task" />
+      </topicref>
+    </topicref>
+    <topicref href="concepts/sending/methods.xml" type="concept">
+      <topicref href="tasks/sending/send-method.xml" type="task" />
+      <topicref href="tasks/sending/batchsend-method.xml" type="task" />
+    </topicref>
+    <topicref href="concepts/sending/finding-failures.xml" type="concept">
+      <topicref href="tasks/sending/failures-byreference.xml" type="task" />
     </topicref>
   </topicref>
   

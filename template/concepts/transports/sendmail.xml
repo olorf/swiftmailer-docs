@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
-  "../../../../dtd/concept.dtd">
-<concept id="sendmail" xml:lang="en-us">
-  <title>Sendmail (or Exim, or Postfix, or qMail&#8230;) Transport</title>
-  <shortdesc>For sending messages using a local sendmail installation</shortdesc>
+  "../../../dtd/concept.dtd">
+<concept id="transport-sendmail" xml:lang="en-us">
+  <title>The Sendmail Transport</title>
+  <shortdesc>
+    The Sendmail Transport sends messages by communicating with a locally installed MTA &#8211;
+    such as <cmdname>sendmail</cmdname>.
+  </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
     <copyright>
@@ -11,29 +14,24 @@
       <copyrholder>Chris Corbyn</copyrholder>
     </copyright>
     <critdates>
-      <created date="2008-December-24"/>
-      <revised modified="2008-December-24"/>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
     </critdates>
     <metadata>
       <keywords>
         <keyword>swift mailer</keyword>
         <keyword>php</keyword>
-        <keyword>transports</keyword>
-        <keyword>swift_sendmailtransport</keyword>
-        <keyword>sendmail</keyword>
-        <keyword>postfix</keyword>
-        <keyword>qmail</keyword>
-        <keyword>exim</keyword>
+        <keyword>sendmail transport</keyword>
         <indexterm>
           transports
           <indexterm>sendmail</indexterm>
         </indexterm>
+        <indexterm>sendmail transport</indexterm>
       </keywords>
     </metadata>
   </prolog>
   <conbody>
     <section id="about">
-      <title>About the Sendmail Transport</title>
       <p>
         The Sendmail Transport, <codeph>Swift_SendmailTransport</codeph> does not directly connect to
         any remote services.  It is designed for Linux servers that have <cmdname>sendmail</cmdname>
@@ -62,6 +60,13 @@
         in reality the majority of locally installed <cmdname>sendmail</cmdname> instances are not configured
         well enough to provide any useful feedback.  As such Swift Mailer may report
         successful deliveries where they did in fact fail before they even left your server.
+      </p>
+      <p>
+        You can run the Sendmail Transport in two different modes specified by command line flags:
+        <ol>
+          <li>"<cmdname>-bs</cmdname>" runs in SMTP mode so theoretically it will act like the SMTP Transport</li>
+          <li>"<cmdname>-t</cmdname>" runs in piped mode with no feedback, but theoretically faster, though not advised</li>
+        </ol>
       </p>
       <p>
         You can think of the Sendmail Transport as a sort of asynchronous SMTP Transport &#8211;

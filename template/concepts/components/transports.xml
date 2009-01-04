@@ -43,60 +43,56 @@
     </metadata>
   </prolog>
   <conbody>
-    <p>
-      Typically you will not need to know how a Transport works under-the-surface, you will only need
-      to know how to create an instance of one, and which one to use for your environment.
-    </p>
-
-    <simpletable>
-      
-      <sthead>
-        <stentry>Class</stentry>
-        <stentry>Features</stentry>
-        <stentry>Pros/cons</stentry>
-      </sthead>
-      
-      <strow>
-       <stentry><codeph>Swift_SmtpTransport</codeph></stentry>
-       <stentry>Sends messages over SMTP; Supports Authentication; Supports Encryption</stentry>
-       <stentry>Very portable; Pleasingly predictable results; Provides good feedback</stentry>
-      </strow>
-      
-      <strow>
-       <stentry><codeph>Swift_SendmailTransport</codeph></stentry>
-       <stentry>Communicates with a locally installed <cmdname>sendmail</cmdname> executable (Linux/UNIX)</stentry>
-       <stentry>Quick time-to-run;  Provides less-accurate feedback than SMTP; Requires <cmdname>sendmail</cmdname> installation</stentry>
-      </strow>
-      
-      <strow>
-       <stentry><codeph>Swift_MailTransport</codeph></stentry>
-       <stentry>Uses PHP's built-in <codeph>mail()</codeph> function</stentry>
-       <stentry>Very portable; Potentially unpredictable results; Provides extremely weak feedback</stentry>
-      </strow>
-      
-      <strow>
-       <stentry><codeph>Swift_LoadBalancedTransport</codeph></stentry>
-       <stentry>Cycles through a collection of the other Transports to manage load-reduction</stentry>
-       <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down); Keeps the load on remote services down by spreading the work</stentry>
-      </strow>
-      
-      <strow>
-       <stentry><codeph>Swift_FailoverTransport</codeph></stentry>
-       <stentry>Works in conjunction with a collection of the other Transports to provide high-availability</stentry>
-       <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down)</stentry>
-      </strow>
-      
-    </simpletable>
+    <section id="transport_basics">
     
-    <section conref="./transports/smtp.xml#smtp/about" />
+      <p>
+        Typically you will not need to know how a Transport works under-the-surface, you will only need
+        to know how to create an instance of one, and which one to use for your environment.
+      </p>
+    </section>
     
-    <section conref="./transports/sendmail.xml#sendmail/about" />
-    
-    <section conref="./transports/mail.xml#mail/about" />
-    
-    <section conref="./transports/loadbalanced.xml#loadbalanced/about" />
-    
-    <section conref="./transports/failover.xml#failover/about" />
+    <section>
+      <simpletable>
+      
+        <sthead>
+          <stentry>Class</stentry>
+          <stentry>Features</stentry>
+          <stentry>Pros/cons</stentry>
+        </sthead>
+      
+        <strow>
+         <stentry><codeph>Swift_SmtpTransport</codeph></stentry>
+         <stentry>Sends messages over SMTP; Supports Authentication; Supports Encryption</stentry>
+         <stentry>Very portable; Pleasingly predictable results; Provides good feedback</stentry>
+        </strow>
+      
+        <strow>
+         <stentry><codeph>Swift_SendmailTransport</codeph></stentry>
+         <stentry>Communicates with a locally installed <cmdname>sendmail</cmdname> executable (Linux/UNIX)</stentry>
+         <stentry>Quick time-to-run;  Provides less-accurate feedback than SMTP; Requires <cmdname>sendmail</cmdname> installation</stentry>
+        </strow>
+      
+        <strow>
+         <stentry><codeph>Swift_MailTransport</codeph></stentry>
+         <stentry>Uses PHP's built-in <codeph>mail()</codeph> function</stentry>
+         <stentry>Very portable; Potentially unpredictable results; Provides extremely weak feedback</stentry>
+        </strow>
+      
+        <strow>
+         <stentry><codeph>Swift_LoadBalancedTransport</codeph></stentry>
+         <stentry>Cycles through a collection of the other Transports to manage load-reduction</stentry>
+         <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down); Keeps the load on remote services down by spreading the work</stentry>
+        </strow>
+      
+        <strow>
+         <stentry><codeph>Swift_FailoverTransport</codeph></stentry>
+         <stentry>Works in conjunction with a collection of the other Transports to provide high-availability</stentry>
+         <stentry>Provides graceful fallback if one Transport fails (e.g. an SMTP server is down)</stentry>
+        </strow>
+      
+      </simpletable>
+      
+    </section>
     
   </conbody>
 </concept>
