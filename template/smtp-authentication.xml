@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="smtp-authentication" xml:lang="en-us">
+  <title>SMTP with a Username and Password</title>
+  <shortdesc>
+    Some servers require authentication.  You can provide a username and password
+    with <codeph>setUsername()</codeph> and <codeph>setPassword()</codeph>.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>sending</keyword>
+        <keyword>message</keyword>
+        <keyword>transport</keyword>
+        <keyword>smtp</keyword>
+        <keyword>authentication</keyword>
+        <keyword>username and password</keyword>
+        <indexterm>
+          transports
+          <indexterm>SMTP</indexterm>
+        </indexterm>
+        <indexterm>
+          SMTP transport
+          <indexterm>authentication</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To use a username and password with the SMTP Transport:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create the Transport with <codeph>Swift_SmtpTransport::newInstance()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Call the <codeph>setUsername()</codeph> and <codeph>setPassword()</codeph> methods
+          on the Transport.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        Your username and password will be used to authenticate upon first connect when
+        <codeph>send()</codeph> or <codeph>batchSend()</codeph> are first used on the Mailer.
+      </p>
+      <p>
+        If authentication fails, an Exception of type <codeph>Swift_Transport_TransportException</codeph>
+        will be thrown.
+      </p>
+      <note>
+        If you need to know early whether or not authentication has failed and an Exception
+        is going to be thrown, call the <codeph>start()</codeph> method on the created Transport.
+      </note>
+    </result>
+    
+    <example id="authentication">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Transport the call setUsername() and setPassword()
+$transport = Swift_SmtpTransport::newInstance('smtp.example.org', 25)
+  ->setUsername('username')
+  ->setPassword('password')
+  ;
+
+//Create the Mailer using your created Transport
+$mailer = Swift_Mailer::newInstance($transport);
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

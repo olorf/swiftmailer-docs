@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="embedding-files" xml:lang="en-us">
+  <title>Embedding Existing Files</title>
+  <shortdesc>
+    Files that already exist, either on disk or at a URL can be embedded in a message
+    with just one line of code, using Swift_EmbeddedFile::fromPath().
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>inline attachments</keyword>
+        <keyword>embedded files</keyword>
+        <indexterm>
+          messages
+          <indexterm>embedded media</indexterm>
+        </indexterm>
+        <indexterm>
+          embedded media
+          <indexterm>from files</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        You can embed files that exist locally, or if your PHP installation has
+        <codeph>allow_url_fopen</codeph> turned on you can embed files from other
+        websites.
+      </p>
+      <p>
+        To embed an existing file:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create a message object with <codeph>Swift_Message::newInstance()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set the body as HTML, and embed a file at the correct point in the message with <codeph>embed()</codeph>.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        The file will be displayed with the message inline with the HTML wherever its ID
+        is used as a <codeph>src</codeph> attribute.
+      </p>
+      <note>
+        <codeph>Swift_Image</codeph> and <codeph>Swift_EmbeddedFile</codeph> are just aliases of one
+        another.  <codeph>Swift_Image</codeph> exists for semantic purposes.
+      </note>
+      
+      <note>
+        You can embed files in two stages if you prefer.  Just capture the return value of <codeph>embed()</codeph>
+        in a variable and use that as the <codeph>src</codeph> attribute.
+      </note>
+    </result>
+    
+    <example id="embed_frompath">
+<codeblock><![CDATA[
+//Create the message
+$message = Swift_Message::newInstance('My subject');
+
+//Set the body
+$message->setBody(
+'<html>' .
+' <head></head>' .
+' <body>' .
+'  Here is an image <img src="' . //Embed the file
+     $message->embed(Swift_Image::fromPath('image.png')) .
+   '" alt="Image" />' .
+'  Rest of message' .
+' </body>' .
+'</html>',
+  'text/html' //Mark the content-type as HTML
+);
+  
+
+//You can embed files from a URL if allow_url_fopen is on in php.ini
+$message->setBody(
+'<html>' .
+' <head></head>' .
+' <body>' .
+'  Here is an image <img src="' .
+     $message->embed(Swift_Image::fromPath('http://site.tld/logo.png')) .
+   '" alt="Image" />' .
+'  Rest of message' .
+' </body>' .
+'</html>',
+  'text/html'
+);
+
+
+// If placing the embed() code inline becomes cumbersome
+// it's easy to do this in two steps
+$cid = $message->embed(Swift_Image::fromPath('image.png'));
+
+$message->setBody(
+'<html>' .
+' <head></head>' .
+' <body>' .
+'  Here is an image <img src="' . $cid . '" alt="Image" />' .
+'  Rest of message' .
+' </body>' .
+'</html>',
+  'text/html' //Mark the content-type as HTML
+);
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

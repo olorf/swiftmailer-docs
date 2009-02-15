@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="setting-readreceiptto" xml:lang="en-us">
+  <title>Requesting a Read Receipt</title>
+  <shortdesc>
+    It is possible to request a read-receipt to be sent to an address when the email
+    is opened.  To request a read receipt set the address with <codeph>setReadReceiptTo()</codeph>.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>read receipt</keyword>
+        <keyword>disposition-notification-to</keyword>
+        <indexterm>
+          messages
+          <indexterm>read receipts</indexterm>
+        </indexterm>
+        <indexterm>
+          read receipts
+          <indexterm>Disposition-Notification-To header</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To request a read receipt:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Set the address you want the receipt to be sent to with the <codeph>setReadReceiptTo()</codeph>
+          method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        When the email is opened, if the mail client supports it a notification will be sent to this address.
+      </p>
+      <note>
+        Read receipts won't work for the majority of recipients since many mail clients
+        auto-disable them.  Those clients that will send a read receipt will make the user
+        aware that one has been requested.
+      </note>
+    </result>
+    
+    <example id="setreadreceiptto">
+<codeblock><![CDATA[$message->setReadReceiptTo('your@address.tld');]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

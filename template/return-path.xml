@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="setting-returnpath" xml:lang="en-us">
+  <title>Setting the <codeph>Return-Path:</codeph> (Bounce) Address</title>
+  <shortdesc>
+    The <codeph>Return-Path:</codeph> address specifies where bounce notifications should
+    be sent and is set with the <codeph>setReturnPath()</codeph> method of the message.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>return-path</keyword>
+        <keyword>bounce detection</keyword>
+        <indexterm>
+          messages
+          <indexterm>return-path</indexterm>
+        </indexterm>
+        <indexterm>bounce-detection</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        You can only have one <codeph>Return-Path:</codeph> and it must not include
+        a personal name.
+      </p>
+      <p>
+        To set the <codeph>Return-Path:</codeph> address:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Call the <codeph>setReturnPath()</codeph> method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        Bouce notifications will be sent to this address.
+      </p>
+    </result>
+    
+    <example id="setreturnpath">
+<codeblock><![CDATA[$message->setReturnPath('bounces@address.tld');]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

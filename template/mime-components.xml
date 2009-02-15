@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="mime" xml:lang="en-us">
+  <title>MIME Entities</title>
+  <shortdesc>
+    Everything that forms part of a Message is called a MIME Entity.  All MIME entities
+    in Swift Mailer share a common set of features.  There are various types of MIME entity
+    that serve different purposes such as Attachments and MIME parts.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-24"/>
+      <revised modified="2008-December-24"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mime entity</keyword>
+        <keyword>message</keyword>
+        <keyword>mime part</keyword>
+        <keyword>attachment</keyword>
+        <keyword>embedded file</keyword>
+        <keyword>image</keyword>
+        <indexterm>
+          mime entities
+          <indexterm>messages</indexterm>
+          <indexterm>mime parts</indexterm>
+          <indexterm>attachments</indexterm>
+          <indexterm>embedded files</indexterm>
+          <indexterm>inline images</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="mimebasics">
+      <p>
+        An e-mail message is made up of several relatively simple entities that are combined in
+        different ways to achieve different results.  All of these entities have the same fundamental
+        outline but serve a different purpose.  The Message itself can be defined as a MIME entity,
+        an Attachment is a MIME entity, all MIME parts are MIME entities &#8211; and so on&#8230;
+      </p>
+      <p>
+        The basic units of each MIME entity &#8211; be it the Message itself, or an Attachment &#8211;
+        are its Headers and its body:
+      
+<codeblock>Header-Name: A header value
+Other-Header: Another value
+
+The body content itself</codeblock>
+      
+      </p>
+      <p>
+        The Headers of a MIME entity, and its body must conform to some strict standards defined by
+        various RFC documents.  Swift Mailer ensures that these specifications are followed by using
+        various types of object, including Encoders and different Header types to generate the entity.
+      </p>
+    </section>
+    <section>
+      <p>
+        Each MIME component implements the base <codeph>Swift_Mime_MimeEntity</codeph> interface, which
+        offers methods for retrieving Headers, adding new Headers, changing the Encoder, updating
+        the body and so on&#8230;
+      </p>
+    </section>
+    <section id="mimenote">
+      <p>
+        All MIME entities have one Header in common &#8211; the Content-Type Header, updated with
+        the entity's <codeph>setContentType()</codeph> method.
+      </p>
+    </section>
+  </conbody>
+</concept>

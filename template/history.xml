@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="history" xml:lang="en-us">
+  <title>History of Swift Mailer</title>
+  <shortdesc>
+    Swift Mailer began back in 2005 as a one-class project for sending mail over SMTP.  It has since grown
+    into the flexible component-based library that is in development today.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-January-02"/>
+      <revised modified="2009-January-02"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>code samples</keyword>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      I first posted Swift Mailer on a web forum at <xref href="http://forums.devnetwork.net" format="html" />
+      asking for comments from other developers.  It was never intended as a fully supported open source
+      project, but members of the forum began to adopt it and make use of it.
+    </p>
+    <p>
+      Very quickly feature requests were coming to me for the ability to add attachments and use SMTP authentication,
+      along with a number of other "obvious" missing features.  Considering the only alternative was PHPMailer it seemed
+      like a good time to bring some fresh tools to the table.  I began working towards a more component based, PHP5-like
+      approach unlike the existing single-class, legacy PHP4 approach taken by PHPMailer.
+    </p>
+    <p>
+      Members of the forum offered a lot of advice and critique on my code as I worked through this project and released
+      versions 2 and 3 of the library in 2005 and 2006, which by then had been broken down into smaller classes offering
+      more flexibility and supporting plugins.  To this day I still receive a lot of feature requests from users both on the
+      forum and in my inbox.
+    </p>
+    <p>
+      I have learned a lot over the years whilst working on Swift Mailer and I believe that I have matured a lot as a developer,
+      improving the underlying code in the library as I have done so.
+    </p>
+    <p>
+      Until 2008 I was the sole developer of Swift Mailer, but entering 2009 I gained the support of two experienced
+      developers well-known to me: Paul Annesley and Christopher Thompson.  This has been an extremely welcome change.
+    </p>
+    <p>
+      Now 2009 and in its fourth major version Swift Mailer is more object-oriented and flexible than ever, both from a usability
+      standpoint and from a development standpoint.
+    </p>
+    <p>
+      By no means is Swift Mailer ready to call "finished".  There are still many features that can be added to the library
+      along with the constant refactoring that happens behind the scenes.
+    </p>
+  </conbody>
+</concept>

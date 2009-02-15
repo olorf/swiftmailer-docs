@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="setting-cc" xml:lang="en-us">
+  <title>Setting <codeph>Cc:</codeph> Recipients</title>
+  <shortdesc>
+    <codeph>Cc:</codeph> recipients receive a copy of the message and are set with the
+    <codeph>setCc()</codeph> method of the message.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>cc recipients</keyword>
+        <indexterm>
+          messages
+          <indexterm>recipients</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To set <codeph>Cc:</codeph> recipients:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Call the <codeph>setCc()</codeph> method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        <codeph>Cc:</codeph> recipients are visible in the message headers and will
+        be seen by the other recipients.
+      </p>
+    </result>
+    
+    <example id="setcc">
+<codeblock><![CDATA[
+$message->setCc(array(
+  'person1@example.org',
+  'person2@otherdomain.org' => 'Person 2 Name',
+  'person3@example.org',
+  'person4@example.org',
+  'person5@example.org' => 'Person 5 Name'
+));
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

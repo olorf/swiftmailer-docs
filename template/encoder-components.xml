@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="encoders" xml:lang="en-us">
+  <title>Encoders</title>
+  <shortdesc>
+    Encoders are used to transform the content of Messages generated in Swift Mailer
+    into a format that is safe to send across the internet and that conforms to RFC
+    specifications.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-25"/>
+      <revised modified="2008-December-25"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>encoders</keyword>
+        <keyword>base64</keyword>
+        <keyword>quoted printable</keyword>
+        <indexterm>
+          encoders
+          <indexterm>for mime entities</indexterm>
+          <indexterm>for headers</indexterm>
+          <indexterm>base64</indexterm>
+          <indexterm>quoted-printable</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="about">
+      <p>
+        Generally speaking you will not need to interact with the Encoders in Swift Mailer &#8211;
+        the correct settings will be handled by the library itself.  However they are probably worth
+        a brief mention in the event that you do want to play with them.
+      </p>
+      <p>
+        Both the Headers and the body of all MIME entities (including the Message itself) use Encoders
+        to ensure the data they contain can be sent over the internet without becoming corrupted or
+        misinterpreted.
+      </p>
+      <p>
+        There are two types of Encoder: Base64 and Quoted-Printable.
+      </p>
+    </section>
+    
+  </conbody>
+</concept>

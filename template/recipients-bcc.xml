@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="setting-bcc" xml:lang="en-us">
+  <title>Setting <codeph>Bcc:</codeph> Recipients</title>
+  <shortdesc>
+    <codeph>Bcc:</codeph> recipients receive a copy of the message without anybody
+    else knowing it, and are set with the <codeph>setBcc()</codeph> method of the message.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>bcc recipients</keyword>
+        <indexterm>
+          messages
+          <indexterm>recipients</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To set <codeph>Bcc:</codeph> recipients:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Call the <codeph>setBcc()</codeph> method on the Message.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        Only the individual <codeph>Bcc:</codeph> recipient will see their address in
+        the message headers.  Other recipients (including other <codeph>Bcc:</codeph>
+        recipients) will not see the address.
+      </p>
+      <note>
+        You should not use <codeph>Bcc:</codeph> recipients as a mechanism for sending
+        bulk email with undisclosed recipients.  You should perform a <codeph>batchSend()</codeph>
+        instead.
+      </note>
+    </result>
+    
+    <example id="setbcc">
+<codeblock><![CDATA[
+$message->setBcc(array(
+  'person1@example.org',
+  'person2@otherdomain.org' => 'Person 2 Name',
+  'person3@example.org',
+  'person4@example.org',
+  'person5@example.org' => 'Person 5 Name'
+));
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

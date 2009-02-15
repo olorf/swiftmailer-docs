@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="using-sendmail" xml:lang="en-us">
+  <title>Using the Sendmail Transport</title>
+  <shortdesc>
+    To use the Sendmail Transport you simply need to call
+    <codeph>Swift_SendmailTransport::newInstance()</codeph> with the command as a parameter.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>sending</keyword>
+        <keyword>message</keyword>
+        <keyword>transport</keyword>
+        <keyword>sendmail</keyword>
+        <keyword>postfix</keyword>
+        <keyword>exim</keyword>
+        <keyword>qmail</keyword>
+        <indexterm>
+          transports
+          <indexterm>sendmail</indexterm>
+        </indexterm>
+        <indexterm>sendmail transport</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>
+      <p>
+        To use the Sendmail Transport you need to know where <cmdname>sendmail</cmdname> or
+        another MTA exists on the server.  Swift Mailer uses a default value of
+        <cmdname>/usr/sbin/sendmail</cmdname>, which should work on most systems.
+      </p>
+      <p>
+        You specify the entire command as a parameter (i.e. including the command line flags).
+        Swift Mailer supports operational modes of "<cmdname>-bs</cmdname>" (default) and "<cmdname>-t</cmdname>".
+      </p>
+      <note>
+        If you run sendmail in "<cmdname>-t</cmdname>" mode you will get no feedback as to whether or
+        not sending has succeeded.  Use "<cmdname>-bs</cmdname>" unless you have a reason not to.
+      </note>
+    </prereq>
+    <context>
+      <p>
+        To use the Sendmail Transport:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Call <codeph>Swift_SendmailTransport::newInstance()</codeph> with the
+          command, including the correct command line flags.  The default is to use
+          <cmdname>/usr/sbin/sendmail -bs</cmdname> if this is not specified.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Use the returned object to create the Mailer.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        A sendmail process will be started upon the first call to
+        <codeph>send()</codeph> or <codeph>batchSend()</codeph>.  If the process cannot
+        be started successfully an Exception of type <codeph>Swift_Transport_TransportException</codeph>
+        will be thrown.
+      </p>
+    </result>
+    
+    <example id="using_sendmail">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Transport
+$transport = Swift_SendmailTransport::newInstance('/usr/sbin/exim -bs');
+
+//Create the Mailer using your created Transport
+$mailer = Swift_Mailer::newInstance($transport);
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

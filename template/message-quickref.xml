@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="creating" xml:lang="en-us">
+  <title>Quick Reference for Creating a Message</title>
+  <shortdesc>
+    You can think of creating a Message as being similar to the steps you perform
+    when you click the Compose button in your mail client.  You give it a subject,
+    specify some recipients, add any attachments and write your message.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-25"/>
+      <revised modified="2008-December-25"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>mime part</keyword>
+        <keyword>attachment</keyword>
+        <keyword>embedded file</keyword>
+        <keyword>image</keyword>
+        <indexterm>
+          messages
+          <indexterm>creating messages</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To create a Message:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Call the <codeph>newInstance()</codeph> method of <codeph>Swift_Message</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set your sender address (<codeph>From:</codeph>) with <codeph>setFrom()</codeph>
+          or <codeph>setSender()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set a subject line with <codeph>setSubject()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set recipients with <codeph>setTo()</codeph>, <codeph>setCc()</codeph> and/or
+          <codeph>setBcc()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set a body with <codeph>setBody()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Add attachments with <codeph>attach()</codeph>.
+        </cmd>
+      </step>
+    </steps>
+    
+    <example id="quickexample">
+      <title>Creating a Message</title>
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the message
+$message = Swift_Message::newInstance()
+
+  //Give the message a subject
+  ->setSubject('Your subject')
+
+  //Set the From address with an associative array
+  ->setFrom(array('john@doe.com' => 'John Doe'))
+
+  //Set the To addresses with an associative array
+  ->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'))
+
+  //Give it a body
+  ->setBody('Here is the message itself')
+
+  //And optionally an alternative body
+  ->addPart('<q>Here is the message itself</q>', 'text/html')
+
+  //Optionally add any attachments
+  ->attach(Swift_Attachment::fromPath('my-document.pdf'))
+  ;
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

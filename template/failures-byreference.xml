@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="failures-byreference" xml:lang="en-us">
+  <title>Getting Failures By-reference</title>
+  <shortdesc>
+    Collecting delivery failures by-reference with the <codeph>send()</codeph> or
+    <codeph>batchSend()</codeph> methods is as simple as passing a variable name to
+    the method call.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-January-03"/>
+      <revised modified="2009-January-03"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>sending messages</keyword>
+        <keyword>mailer</keyword>
+        <keyword>send</keyword>
+        <keyword>delivery failures</keyword>
+        <indexterm>delivery failures</indexterm>
+        <indexterm>sending messages</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To get failed recipients by-reference:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Pass a by-reference variable name to the <codeph>send()</codeph> or <codeph>batchSend()</codeph>
+          methods of the Mailer class.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        If the Transport rejects any of the recipients, the culprit addresses will be added to the
+        array provided by-reference.
+      </p>
+      <note>
+        If the variable name does not yet exist, it will be initialized as an empty array and then
+        failures will be added to that array.  If the variable already exists it will be type-cast to
+        an array and failures will be added to it.
+      </note>
+    </result>
+    
+    <example id="mailer_failures_byreference">
+<codeblock><![CDATA[
+$mailer = Swift_Mailer::newInstance( ... );
+
+$message = Swift_Message::newInstance( ... )
+  ->setFrom( ... )
+  ->setTo(array(
+    'receiver@bad-domain.org' => 'Receiver Name',
+    'other@domain.org' => 'A name',
+    'other-receiver@bad-domain.org' => 'Other Name'
+  ))
+  ->setBody( ... )
+  ;
+  
+//Pass a variable name to the send() method
+if (!$mailer->send($message, $failures))
+{
+  echo "Failures:";
+  print_r($failures);
+}
+
+/*
+Failures:
+Array (
+  0 => receiver@bad-domain.org,
+  1 => other-receiver@bad-domain.org
+)
+*/
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

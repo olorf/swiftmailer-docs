@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="message-addresses" xml:lang="en-us">
+  <title>Addresses in Swift Mailer</title>
+  <shortdesc>
+    Addresses are specified with a basic array syntax that can include the name
+    associated with the address.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>addresses</keyword>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section id="syntax">
+      <title>Syntax for Addresses</title>
+      <p>
+        If you only wish to refer to a single email address (for example your <codeph>From:</codeph>
+        address) then you can just use a string.
+      </p>
+<codeblock><![CDATA[
+$message->setFrom('some@address.tld');
+]]></codeblock>
+
+      <p>
+        If you want to include a name then you must use an associative array.
+      </p>
+<codeblock><![CDATA[
+$message->setFrom(array('some@address.tld' => 'The Name'));
+]]></codeblock>
+
+      <p>
+        If you want to include multiple addresses then you must use an array.
+      </p>
+<codeblock><![CDATA[
+$message->setTo(array('some@address.tld', 'other@address.tld'));
+]]></codeblock>
+
+      <p>
+        You can mix personalized (addresses with a name) and non-personalized
+        addresses in the same list by mixing the use of associative and non-associative
+        array syntax.
+      </p>
+
+<codeblock><![CDATA[
+$message->setTo(array(
+  'recipient-with-name@example.org' => 'Recipient Name One',
+  'no-name@example.org', //Note that this is not a key-value pair
+  'named-recipient@example.org' => 'Recipient Name Two'
+));
+]]></codeblock>
+      
+    </section>
+    
+  </conbody>
+</concept>

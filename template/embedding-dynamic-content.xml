@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="embedding-dynamic" xml:lang="en-us">
+  <title>Embedding Dynamic Content</title>
+  <shortdesc>
+    Images that are generated at runtime, such as images created via
+    GD can be embedded directly to a message without writing them out to disk.  Use the
+    standard Swift_Image::newInstance() method.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>inline attachments</keyword>
+        <keyword>embedded files</keyword>
+        <indexterm>
+          messages
+          <indexterm>embedded media</indexterm>
+        </indexterm>
+        <indexterm>
+          embedded media
+          <indexterm>from dynamic content</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To embed dynamically created content:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create a message object with <codeph>Swift_Message::newInstance()</codeph>.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Set the body as HTML, and embed a file at the correct point in the message with <codeph>embed()</codeph>.
+          You will need to specify a filename and a content-type.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        The file will be displayed with the message inline with the HTML wherever its ID
+        is used as a <codeph>src</codeph> attribute.
+      </p>
+      <note>
+        <codeph>Swift_Image</codeph> and <codeph>Swift_EmbeddedFile</codeph> are just aliases of one
+        another.  <codeph>Swift_Image</codeph> exists for semantic purposes.
+      </note>
+      
+      <note>
+        You can embed files in two stages if you prefer.  Just capture the return value of <codeph>embed()</codeph>
+        in a variable and use that as the <codeph>src</codeph> attribute.
+      </note>
+    </result>
+    
+    <example id="embed_dynamic">
+<codeblock><![CDATA[
+//Create your file contents in the normal way, but don't write them to disk
+$img_data = create_my_image_data();
+
+//Create the message
+$message = Swift_Message::newInstance('My subject');
+
+//Set the body
+$message->setBody(
+'<html>' .
+' <head></head>' .
+' <body>' .
+'  Here is an image <img src="' . //Embed the file
+     $message->embed(Swift_Image::newInstance($img_data, 'image.jpg', 'image/jpeg')) .
+   '" alt="Image" />' .
+'  Rest of message' .
+' </body>' .
+'</html>',
+  'text/html' //Mark the content-type as HTML
+);
+
+
+// If placing the embed() code inline becomes cumbersome
+// it's easy to do this in two steps
+$cid = $message->embed(Swift_Image::newInstance($img_data, 'image.jpg', 'image/jpeg'));
+
+$message->setBody(
+'<html>' .
+' <head></head>' .
+' <body>' .
+'  Here is an image <img src="' . $cid . '" alt="Image" />' .
+'  Rest of message' .
+' </body>' .
+'</html>',
+  'text/html' //Mark the content-type as HTML
+);
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

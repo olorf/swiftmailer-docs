@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="attachments" xml:lang="en-us">
+  <title>Attaching Files</title>
+  <shortdesc>
+    Attachments are downloadable parts of a message and can be added by calling the
+    attach() method on the message.  You can add attachments that exist on disk, or
+    you can create attachments on-the-fly.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>attachments</keyword>
+        <indexterm>
+          messages
+          <indexterm>attachments</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      Attachments are actually an interesting area of Swift Mailer and something that
+      could put a lot of power at your fingertips if you grasp the concept behind the
+      way a message is held together.
+    </p>
+    <p>
+      Although we refer to files sent over e-mails as "attachments" &#8211; because they're
+      attached to the message &#8211; lots of other parts of the message are actually
+      "attached" even if we don't refer to these parts as attachments.  We'll cover the obvious
+      grounds of attaching files to a message first for those who just want to know how it's done,
+      then we'll go on to discuss what I mean by other parts of the message being attachments for
+      those who are interested in learning more.
+    </p>
+    <p>
+      Attachments (in the normal file sense) are created by the <codeph>Swift_Attachment</codeph>
+      class and then attached to the message via the <codeph>attach()</codeph> method on it.  For all
+      of the "every day" MIME types such as all image formats, word documents, PDFs and spreadsheets
+      you don't need to explicitly set the content-type of the attachment, though it would do no
+      harm to do so.  For less common formats you should set the content-type &#8211; which we'll cover in a
+      moment.
+    </p>
+  </conbody>
+</concept>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="setting-disposition" xml:lang="en-us">
+  <title>Changing the Disposition</title>
+  <shortdesc>
+    Attachments just appear as files that can be saved to the Desktop if desired.
+    You can make attachment appear inline where possible by using the setDisposition()
+    method of an attachment.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-26"/>
+      <revised modified="2008-December-26"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>attachments</keyword>
+        <keyword>disposition</keyword>
+        <indexterm>
+          messages
+          <indexterm>attachments</indexterm>
+        </indexterm>
+        <indexterm>
+          attachments
+          <indexterm>disposition (inline vs. attachment)</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To make an attachment appear inline:
+      </p>
+    </context>
+    <steps-unordered>
+      <step>
+        <cmd>
+          Call its <codeph>setDisposition()</codeph> method.
+        </cmd>
+      </step>
+    </steps-unordered>
+    
+    <result>
+      <p>
+        The attachment will be displayed within the email viewing window if the mail
+        client knows how to display it.
+      </p>
+      <note>
+        If you try to create an inline attachment for a non-displayable file type such as a
+        ZIP file, the mail client should just present the attachment as normal.
+      </note>
+    </result>
+    
+    <example id="setdisposition">
+<codeblock><![CDATA[
+//Create the attachment and call its setDisposition() method
+$attachment = Swift_Attachment::fromPath('/path/to/image.jpg')
+  ->setDisposition('inline');
+
+
+//Because there's a fluid interface, you can do this in one statement
+$message->attach(
+  Swift_Attachment::fromPath('/path/to/image.jpg')->setDisposition('inline')
+);
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

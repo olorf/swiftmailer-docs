@@ -3,98 +3,98 @@
   "../dtd/map.dtd">
 <map title="Swift Mailer User Guide">
   
-  <topicref href="topics/introduction.xml" type="topic">
-    <topicref href="concepts/organization.xml" type="concept">
-      <topicref href="concepts/organization/codesamples.xml" type="concept" />
+  <topicref href="introduction.xml" type="topic">
+    <topicref href="book-organization.xml" type="concept">
+      <topicref href="book-codesamples.xml" type="concept" />
     </topicref>
-    <topicref href="concepts/history.xml" type="concept" />
-    <topicref href="concepts/library-vs-application.xml" type="concept" />
+    <topicref href="history.xml" type="concept" />
+    <topicref href="library-vs-application.xml" type="concept" />
   </topicref>
 
-  <topicref href="topics/overview.xml" type="topic">
-    <topicref href="concepts/system-requirements.xml" type="concept"/>
-    <topicref href="topics/components.xml" type="topic">
-      <topicref href="concepts/components/mailer.xml" type="concept"/>
-      <topicref href="concepts/components/transports.xml" type="concept"/>
-      <topicref href="concepts/components/mime.xml" type="concept"/>
-      <topicref href="concepts/components/encoders.xml" type="concept"/>
-      <topicref href="concepts/components/plugins.xml" type="concept"/>
+  <topicref href="overview.xml" type="topic">
+    <topicref href="system-requirements.xml" type="concept"/>
+    <topicref href="library-components.xml" type="topic">
+      <topicref href="mailer-component.xml" type="concept"/>
+      <topicref href="transport-components.xml" type="concept"/>
+      <topicref href="mime-components.xml" type="concept"/>
+      <topicref href="encoder-components.xml" type="concept"/>
+      <topicref href="plugin-components.xml" type="concept"/>
     </topicref>
   </topicref>
   
-  <topicref href="topics/installing.xml" type="topic">
-    <topicref href="concepts/installing/package.xml" type="concept">
-      <topicref href="tasks/installing/package-extract.xml" type="task" />
+  <topicref href="installing.xml" type="topic">
+    <topicref href="installing-from-download.xml" type="concept">
+      <topicref href="package-extracting.xml" type="task" />
     </topicref>
-    <topicref href="concepts/installing/git.xml" type="concept">
-      <topicref href="tasks/installing/git-clone.xml" type="task" />
+    <topicref href="installing-from-git.xml" type="concept">
+      <topicref href="git-clone.xml" type="task" />
     </topicref>
-    <topicref href="tasks/installing/uploading.xml" type="task" />
+    <topicref href="uploading-files.xml" type="task" />
   </topicref>
   
-  <topicref href="topics/help-resources.xml" type="topic">
-    <topicref href="concepts/help/bugs.xml" type="concept" />
-    <topicref href="concepts/help/google-group.xml" type="concept" />
-    <topicref href="concepts/help/forum.xml" type="concept" />
+  <topicref href="help-resources.xml" type="topic">
+    <topicref href="reporting-bugs.xml" type="concept" />
+    <topicref href="google-group.xml" type="concept" />
+    <topicref href="help-forum.xml" type="concept" />
   </topicref>
   
-  <topicref href="tasks/including.xml" type="task" />
+  <topicref href="including-the-files.xml" type="task" />
   
-  <topicref href="topics/messages.xml" type="topic">
-    <topicref href="tasks/messages/creating.xml" type="task" />
-    <topicref href="concepts/messages/basics.xml" type="concept" />
-    <topicref href="concepts/messages/content.xml" type="concept">
-      <topicref href="tasks/messages/setting-subject.xml" type="task" />
-      <topicref href="tasks/messages/setting-body.xml" type="task" />
-      <topicref href="concepts/messages/attachments.xml" type="concept">
-        <topicref href="tasks/attachments/attaching-files.xml" type="task" />
-        <topicref href="tasks/attachments/setting-filename.xml" type="task" />
-        <topicref href="tasks/attachments/attaching-dynamic.xml" type="task" />
-        <topicref href="tasks/attachments/setting-disposition.xml" type="task" />
-        <topicref href="concepts/attachments/insight.xml" type="concept" />
+  <topicref href="messages.xml" type="topic">
+    <topicref href="message-quickref.xml" type="task" />
+    <topicref href="message-basics.xml" type="concept" />
+    <topicref href="message-content.xml" type="concept">
+      <topicref href="message-subject.xml" type="task" />
+      <topicref href="message-body.xml" type="task" />
+      <topicref href="message-attachments.xml" type="concept">
+        <topicref href="attaching-files.xml" type="task" />
+        <topicref href="attachment-filename.xml" type="task" />
+        <topicref href="dynamic-attachments.xml" type="task" />
+        <topicref href="attachment-disposition.xml" type="task" />
+        <topicref href="attachment-moreinfo.xml" type="concept" />
       </topicref>
-      <topicref href="concepts/messages/inline-media.xml" type="concept">
-        <topicref href="tasks/inline-media/embedding-files.xml" type="task" />
-        <topicref href="tasks/inline-media/embedding-dynamic.xml" type="task" />
+      <topicref href="inline-message-media.xml" type="concept">
+        <topicref href="embedding-files.xml" type="task" />
+        <topicref href="embedding-dynamic-content.xml" type="task" />
       </topicref>
-      <topicref href="tasks/messages/setting-charset.xml" type="task" />
-      <topicref href="tasks/messages/setting-linelength.xml" type="task" />
+      <topicref href="message-charset.xml" type="task" />
+      <topicref href="message-line-length.xml" type="task" />
     </topicref>
-    <topicref href="concepts/messages/recipients.xml" type="concept">
-      <topicref href="tasks/messages/setting-to.xml" type="task" />
-      <topicref href="tasks/messages/setting-cc.xml" type="task" />
-      <topicref href="tasks/messages/setting-bcc.xml" type="task" />
+    <topicref href="recipients.xml" type="concept">
+      <topicref href="recipients-to.xml" type="task" />
+      <topicref href="recipients-cc.xml" type="task" />
+      <topicref href="recipients-bcc.xml" type="task" />
     </topicref>
-    <topicref href="concepts/messages/senders.xml" type="concept">
-      <topicref href="tasks/messages/setting-from.xml" type="task" />
-      <topicref href="tasks/messages/setting-sender.xml" type="task" />
-      <topicref href="tasks/messages/setting-returnpath.xml" type="task" />
+    <topicref href="senders.xml" type="concept">
+      <topicref href="senders-from.xml" type="task" />
+      <topicref href="senders-sender.xml" type="task" />
+      <topicref href="return-path.xml" type="task" />
     </topicref>
-    <topicref href="tasks/messages/setting-readreceipt.xml" type="task" />
-    <topicref href="tasks/messages/setting-priority.xml" type="task" />
+    <topicref href="read-receipts.xml" type="task" />
+    <topicref href="message-priority.xml" type="task" />
   </topicref>
   
-  <topicref href="topics/sending.xml" type="topic">
-    <topicref href="tasks/sending/sending.xml" type="task" />
-    <topicref href="concepts/transports/types.xml" type="concept">
-      <topicref href="concepts/transports/smtp.xml" type="concept">
-        <topicref href="tasks/transports/smtp/using.xml" type="task" />
-        <topicref href="tasks/transports/smtp/using-encryption.xml" type="task" />
-        <topicref href="tasks/transports/smtp/using-authentication.xml" type="task" />
+  <topicref href="sending.xml" type="topic">
+    <topicref href="sending-quickref.xml" type="task" />
+    <topicref href="transport-types.xml" type="concept">
+      <topicref href="smtp-transport.xml" type="concept">
+        <topicref href="smtp-howto.xml" type="task" />
+        <topicref href="smtp-encryption.xml" type="task" />
+        <topicref href="smtp-authentication.xml" type="task" />
       </topicref>
-      <topicref href="concepts/transports/sendmail.xml" type="concept">
-        <topicref href="tasks/transports/sendmail/using.xml" type="task" />
+      <topicref href="sendmail-transport.xml" type="concept">
+        <topicref href="sendmail-howto.xml" type="task" />
       </topicref>
-      <topicref href="concepts/transports/mail.xml" type="concept">
-        <topicref href="tasks/transports/mail/using.xml" type="task" />
+      <topicref href="mail-transport.xml" type="concept">
+        <topicref href="mail-transport-howto.xml" type="task" />
       </topicref>
     </topicref>
-    <topicref href="concepts/sending/methods.xml" type="concept">
-      <topicref href="tasks/sending/send-method.xml" type="task" />
-      <topicref href="tasks/sending/batchsend-method.xml" type="task" />
+    <topicref href="sending-methods.xml" type="concept">
+      <topicref href="send-method.xml" type="task" />
+      <topicref href="batchsend-method.xml" type="task" />
     </topicref>
-    <topicref href="concepts/sending/finding-failures.xml" type="concept">
-      <topicref href="tasks/sending/failures-byreference.xml" type="task" />
+    <topicref href="finding-failures.xml" type="concept">
+      <topicref href="failures-byreference.xml" type="task" />
     </topicref>
   </topicref>
   

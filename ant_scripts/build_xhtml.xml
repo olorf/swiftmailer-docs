@@ -35,6 +35,7 @@
   <!-- Process the XHTML output -->
   <target name="dita2xhtml">
     <property name="classpath" refid="path.jars" />
+    <echo>${classpath}</echo>
     <java jar="${dita.lib.dir}/dost.jar" classpathref="path.jars" fork="true">
       <env key="CLASSPATH" value="${classpath}" />
       <arg value="/i:${args.input}" />

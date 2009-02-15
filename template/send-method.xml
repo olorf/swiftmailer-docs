@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="send-method" xml:lang="en-us">
+  <title>Using the <codeph>send()</codeph> Method</title>
+  <shortdesc>
+    The <codeph>send()</codeph> method of the <codeph>Swift_Mailer</codeph> class
+    sends a message using exactly the same logic as your Desktop mail client would
+    use.  Just pass it a Messgae and get a result.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2008"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2008-December-28"/>
+      <revised modified="2008-December-28"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>sending messages</keyword>
+        <keyword>mailer</keyword>
+        <keyword>send</keyword>
+        <indexterm>
+          messages
+          <indexterm>sending</indexterm>
+        </indexterm>
+        <indexterm>
+          mailer
+          <indexterm>send() method</indexterm>
+        </indexterm>
+        <indexterm>sending messages</indexterm>
+        <indexterm>send() method</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To send a Message with <codeph>send()</codeph>:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create a Transport from one of the provided Transports &#8211;
+          <codeph>Swift_SmtpTransport</codeph>, <codeph>Swift_SendmailTransport</codeph>,
+          <codeph>Swift_MailTransport</codeph> or one of the aggregate Transports.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Create an instance of the <codeph>Swift_Mailer</codeph> class, using the Transport
+          as it's constructor parameter.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Create a Message according to the instructions laid out in
+          <xref href="messages.xml" type="topic" />
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Send the message via the <codeph>send()</codeph> method on the Mailer object.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        The message will be sent just like it would
+        be sent if you used your mail client.  An integer is returned which includes the
+        number of successful recipients.  If none of the recipients could be sent to then
+        zero will be returned, which equates to a boolean <codeph>false</codeph>.  If you
+        set two <codeph>To:</codeph> recipients and three <codeph>Bcc:</codeph> recipients in
+        the message and all of the recipients are delivered to successfully then the value
+        5 will be returned.
+      </p>
+      <note>
+        In the following example, one is email is sent to both <codeph>receiver@domain.org</codeph>
+        and <codeph>other@domain.org</codeph>.  Both addresses will be visible in the <codeph>To:</codeph>
+        header.  If you don't want <codeph>receiver@domain.org</codeph> and <codeph>other@domain.org</codeph>
+        to know about each other you should use <codeph>batchSend()</codeph> instead.
+      </note>
+    </result>
+    
+    <example id="mailer_send">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Transport
+$transport = Swift_SmtpTransport::newInstance('localhost', 25);
+
+//Create the Mailer using your created Transport
+$mailer = Swift_Mailer::newInstance($transport);
+
+//Create a message
+$message = Swift_Message::newInstance('Wonderful Subject')
+  ->setFrom(array('john@doe.com' => 'John Doe'))
+  ->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'))
+  ->setBody('Here is the message itself')
+  ;
+  
+//Send the message
+$numSent = $mailer->send($message);
+
+printf("Sent %d messages\n", $numSent);
+
+/* Note that often that only the boolean equivalent of the
+   return value is of concern (zero indicates FALSE)
+   
+if ($mailer->send($message))
+{
+  echo "Sent\n";
+}
+else
+{
+  echo "Failed\n";
+}
+
+*/
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>
