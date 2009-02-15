@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="throttler-ref" xml:lang="en-us">
+  <title>Using the Throttler Plugin</title>
+  <shortdesc>
+    The Throttler Plugin &#8211; like all plugins &#8211; is added with the Mailer
+    class' <codeph>registerPlugin()</codeph> method.  It has two required constructor
+    parameters that tell it how to do its rate-limiting.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-16"/>
+      <revised modified="2009-February-16"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>throttler plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>throttler plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To use the Throttler plugin:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create an instance of the Mailer using any Transport you choose.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Create an instance of the <codeph>Swift_Plugins_ThrottlerPlugin</codeph>
+          class, passing the number of emails, or bytes you wish to limit by, along
+          with the mode you're using.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Continue using Swift Mailer to send messages as normal.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        When Swift Mailer sends messages it will keep track of the rate at which sending
+        messages is occuring.  If it realises that sending is happening too fast, it will
+        cause your program to <codeph>sleep()</codeph> for enough time to average out
+        the rate.
+      </p>
+      <p>
+        Both <codeph>batchSend()</codeph> and <codeph>send()</codeph> methods will
+        work with this plugin.
+      </p>
+    </result>
+    
+    <example id="quickexample">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Mailer using any Transport
+$mailer = Swift_Mailer::newInstance(
+  Swift_SmtpTransport::newInstance('smtp.example.org', 25)
+);
+
+//Rate limit to 100 emails per-minute
+$mailer->registerPlugin(new Swift_Plugins_ThrottlerPlugin(
+  100, Swift_Plugins_ThrottlerPlugin::MESSAGES_PER_MINUTE
+));
+
+//Rate limit to 10MB per-minute
+$mailer->registerPlugin(new Swift_Plugins_ThrottlerPlugin(
+  1024 * 1024 * 10, Swift_Plugins_ThrottlerPlugin::BYTES_PER_MINUTE
+));
+
+//Continue sending as normal  
+for ($lotsOfRecipients as $recipient) {
+  ...
+  
+  $mailer->send( ... );
+}
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

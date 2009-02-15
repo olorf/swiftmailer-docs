@@ -102,6 +102,9 @@
     <topicref href="antiflood-plugin.xml" type="concept">
       <topicref href="antiflood-plugin-howto.xml" type="task" />
     </topicref>
+    <topicref href="throttler-plugin.xml" type="concept">
+      <topicref href="throttler-plugin-howto.xml" type="task" />
+    </topicref>
   </topicref>
   
 </map>
