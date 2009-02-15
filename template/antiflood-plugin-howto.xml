@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="antiflood-ref" xml:lang="en-us">
+  <title>Using the AntiFlood Plugin</title>
+  <shortdesc>
+    The AntiFlood Plugin &#8211; like all plugins &#8211; is added with the Mailer
+    class' <codeph>registerPlugin()</codeph> method.  It takes two constructor parameters:
+    the number of emails to pause after, and optionally the number of seconds to pause for.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-15"/>
+      <revised modified="2009-February-15"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>anti-flood plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>anti-flood plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To use the AntiFlood plugin:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Create an instance of the Mailer using any Transport you choose.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Create an instance of the <codeph>Swift_Plugins_AntiFloodPlugin</codeph>
+          class, passing in one or two constructor parameters.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Continue using Swift Mailer to send messages as normal.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        When Swift Mailer sends messages it will count the number of messages that
+        have been sent since the last re-connect.  Once the number hits your specified
+        threshold it will disconnect and re-connect, optionally pausing for a specified
+        amount of time.
+      </p>
+      <p>
+        Both <codeph>batchSend()</codeph> and <codeph>send()</codeph> methods will
+        work with this plugin.
+      </p>
+    </result>
+    
+    <example id="quickexample">
+<codeblock><![CDATA[
+<?php
+
+require_once 'lib/swift_required.php';
+
+//Create the Mailer using any Transport
+$mailer = Swift_Mailer::newInstance(
+  Swift_SmtpTransport::newInstance('smtp.example.org', 25)
+);
+
+//Use AntiFlood to re-connect after 100 emails
+$mailer->registerPlugin(new Swift_Plugins_AntiFloodPlugin(100));
+
+//Or specify a time in seconds to pause for (30 secs)
+$mailer->registerPlugin(new Swift_Plugins_AntiFloodPlugin(100, 30));
+
+//Continue sending as normal  
+for ($lotsOfRecipients as $recipient) {
+  ...
+  
+  $mailer->send( ... );
+}
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

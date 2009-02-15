@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="antiflood-plugin" xml:lang="en-us">
+  <title>AntiFlood Plugin</title>
+  <shortdesc>
+    Many SMTP servers have limits on the number of messages that may be sent
+    during any single SMTP connection.  The AntiFlood plugin provides a way to
+    stay within this limit while still managing a large number of emails.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-15"/>
+      <revised modified="2009-February-15"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>antiflood plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>anti-flood plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      A typical limit for a single connection is 100 emails.  If the server you
+      connect to imposes such a limit, it expects you to disconnect after that
+      number of emails has been sent.  You could manage this manually within a
+      loop, but the AntiFlood plugin provides the necessary wrapper code so that
+      you don't need to worry about this logic.
+    </p>
+    
+    <p>
+      Regardless of limits imposed by the server, it's usually a good idea to
+      be conservative with the resources of the SMTP server.  Sending will
+      become sluggish if the server is being over-used so using the AntiFlood
+      plugin will not be a bad idea even if no limits exist.
+    </p>
+    
+    <p>
+      The AntiFlood plugin's logic is basically to disconnect and the immediately
+      re-connect with the SMTP server every X number of emails sent, where X
+      is a number you specify to the plugin.
+    </p>
+    
+    <p>
+      You can also specify a time period in seconds that Swift Mailer should pause
+      for between the disconnect/re-connect process.  It's a good idea to pause
+      for a short time (say 30 seconds every 100 emails) simply to give the SMTP
+      server a chance to process its queue and recover some resources.
+    </p>
+  </conbody>
+</concept>
