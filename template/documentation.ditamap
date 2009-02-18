@@ -51,7 +51,7 @@
         <topicref href="attachment-filename.xml" type="task" />
         <topicref href="dynamic-attachments.xml" type="task" />
         <topicref href="attachment-disposition.xml" type="task" />
-        <topicref href="attachment-moreinfo.xml" type="concept" />
+        <!--<topicref href="attachment-moreinfo.xml" type="concept" />-->
       </topicref>
       <topicref href="inline-message-media.xml" type="concept">
         <topicref href="embedding-files.xml" type="task" />
@@ -72,6 +72,25 @@
     </topicref>
     <topicref href="read-receipts.xml" type="task" />
     <topicref href="message-priority.xml" type="task" />
+  </topicref>
+  
+  <topicref href="headers.xml" type="topic">
+    <topicref href="header-basics.xml" type="concept" />
+    <topicref href="header-types.xml" type="concept">
+      <topicref href="header-text.xml" type="concept" />
+      <topicref href="header-parameterized.xml" type="concept" />
+      <topicref href="header-date.xml" type="concept" />
+      <topicref href="header-mailbox.xml" type="concept" />
+      <topicref href="header-id.xml" type="concept" />
+      <topicref href="header-path.xml" type="concept" />
+    </topicref>
+    <topicref href="header-operations.xml" type="concept">
+      <topicref href="add-header.xml" type="task" />
+      <topicref href="get-header.xml" type="task" />
+      <topicref href="has-header.xml" type="task" />
+      <topicref href="remove-header.xml" type="task" />
+      <topicref href="modify-header.xml" type="task" />
+    </topicref>
   </topicref>
   
   <topicref href="sending.xml" type="topic">
@@ -104,6 +123,9 @@
     </topicref>
     <topicref href="throttler-plugin.xml" type="concept">
       <topicref href="throttler-plugin-howto.xml" type="task" />
+    </topicref>
+    <topicref href="logger-plugin.xml" type="concept">
+      <topicref href="logger-plugin-howto.xml" type="task" />
     </topicref>
   </topicref>
   

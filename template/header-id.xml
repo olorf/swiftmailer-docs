@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="header-id" xml:lang="en-us">
+  <title>ID Headers</title>
+  <shortdesc>
+    ID headers contain identifiers for the entity (or the message).  The most notable
+    ID header is the Message-ID header on the message itself.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-18"/>
+      <revised modified="2009-February-18"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mailing</keyword>
+        <keyword>library</keyword>
+        <keyword>messages</keyword>
+        <keyword>headers</keyword>
+        <keyword>ID headers</keyword>
+        <keyword>mime</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>
+          headers
+          <indexterm>ID headers</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      An ID that exists inside an ID header looks more-or-less less like an email
+      address.  For example, <codeph><![CDATA[<1234955437.499becad62ec2@example.org>]]></codeph>.
+      The part to the left of the @ sign is usually unique, based on the current time and
+      some random factor.  The part on the right is usually a domain name.
+    </p>
+    <p>
+      Any ID passed the an ID header's <codeph>setId()</codeph> method absolutely
+      MUST conform to this structure, otherwise you'll get an Exception thrown at you
+      by Swift Mailer (a <codeph>Swift_RfcComplianceException</codeph>).  This is to
+      ensure that the generated email complies with relevant RFC documents and therefore
+      is less likely to be blocked as spam.
+    </p>
+    <p>
+      It's easy to add a new ID header to a HeaderSet.  You do this by calling
+      the HeaderSet's <codeph>addIdHeader()</codeph> method.
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$message = Swift_Message::newInstance();
+
+$headers = $message->getHeaders();
+
+$headers->addIdHeader('Your-Header-Name', '123456.unqiue@example.org');
+
+]]></codeblock>
+    
+    <p>
+      Changing the value of an existing date header is done by calling its <codeph>setId()</codeph>
+      method.
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$msgId = $message->getHeaders()->getHeader('Message-ID');
+
+$msgId->setId(time() . '.' . uniqid('thing') . '@example.org');
+
+]]></codeblock>
+
+    <p>
+      When output via <codeph>toString()</codeph>, an ID header produces something like the following:
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$msgId = $message->getHeaders()->getHeader('Message-ID');
+
+echo $msgId->toString();
+
+/*
+
+Message-ID: <1234955437.499becad62ec2@example.org>
+
+*/
+
+]]></codeblock>
+    
+  </conbody>
+</concept>

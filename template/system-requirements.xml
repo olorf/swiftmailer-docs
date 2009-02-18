@@ -41,7 +41,7 @@
       <ul>
         <li>PHP 5.2 or higher, with the SPL extension (standard)</li>
         <li>Limited network access to connect to remote SMTP servers</li>
-        <li>8 MB or more memory limit (Swift Mailer uses just under 1.6 MB)</li>
+        <li>8 MB or more memory limit (Swift Mailer uses around 2 MB)</li>
       </ul>
     </p>
   </conbody>

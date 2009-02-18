@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+  "../dtd/task.dtd">
+<task id="has-header" xml:lang="en-us">
+  <title>Check if a Header Exists</title>
+  <shortdesc>
+    You can check if a named header is present in a HeaderSet by calling its
+    <codeph>has()</codeph> method.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-18"/>
+      <revised modified="2009-February-18"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>message</keyword>
+        <keyword>headers</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>
+          headers
+          <indexterm>checking for existence</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>
+        To check if a header exists:
+      </p>
+    </context>
+    <steps>
+      <step>
+        <cmd>
+          Get the HeaderSet from the entity by via its <codeph>getHeaders()</codeph>
+          method.
+        </cmd>
+      </step>
+      <step>
+        <cmd>
+          Call the HeaderSet's <codeph>has()</codeph> method specifying the header you're looking for.
+        </cmd>
+      </step>
+    </steps>
+    
+    <result>
+      <p>
+        If the header exists, <codeph>true</codeph> will be returned or <codeph>false</codeph>
+        if not.
+      </p>
+      
+      <note>
+        It's valid for some headers to appear more than once in a message (e.g. the Received header).
+        For this reason <codeph>has()</codeph> accepts an optional numerical index, starting from zero
+        to specify which header you want to check more specifically.
+      </note>
+      
+    </result>
+    
+    <example id="hasheader">
+<codeblock><![CDATA[
+
+$headers = $message->getHeaders();
+
+//Check if the To: header exists
+if ($headers->has('To')) {
+  echo 'To: exists';
+}
+
+//Check if an X-Foo header exists twice (i.e. check for the 2nd one)
+if ($headers->has('X-Foo', 1)) {
+  echo 'Second X-Foo header exists';
+}
+
+]]></codeblock>
+    </example>
+    
+  </taskbody>
+</task>

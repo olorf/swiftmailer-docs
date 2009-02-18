@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="header-parameterized" xml:lang="en-us">
+  <title>Parameterized Headers</title>
+  <shortdesc>
+    Parameterized headers are text headers that contain key-value parameters following
+    the textual content.  The Content-Type header of a message is a parameterized
+    header since it contains charset information after the content type.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-18"/>
+      <revised modified="2009-February-18"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mailing</keyword>
+        <keyword>library</keyword>
+        <keyword>messages</keyword>
+        <keyword>headers</keyword>
+        <keyword>mime</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>
+          headers
+          <indexterm>parameterized headers</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      The parameterized header type is a special type of text header (see
+      <xref href="header-text.xml" type="concept" />).  It extends the text header
+      by allowing additional information to follow it. All of the methods from text
+      headers are available in addition to the methods described here.
+    </p>
+    <p>
+      Adding a parameterized header to a HeaderSet is done by using the
+      <codeph>addParameterizedHeader()</codeph> method which takes a text value
+      like <codeph>addTextHeader()</codeph> but it also accepts an associative array
+      of key-value parameters.
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$message = Swift_Message::newInstance();
+
+$headers = $message->getHeaders();
+
+$headers->addParameterizedHeader(
+  'Header-Name', 'header value',
+  array('foo' => 'bar')
+  );
+
+]]></codeblock>
+    
+    <p>
+      To change the text value of the header, call it's <codeph>setValue()</codeph>
+      method just as you do with text headers.
+    </p>
+    <p>
+      To change the parameters in the header, call the header's <codeph>setParameters()</codeph>
+      method or the <codeph>setParameter()</codeph> method (note the pluralization).
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$type = $message->getHeaders()->getHeader('Content-Type');
+
+//setParameters() takes an associative array
+$type->setParameters(array(
+  'name' => 'file.txt',
+  'charset' => 'iso-8859-1'
+  ));
+
+//setParameter() takes two args for $key and $value
+$type->setParameter('charset', 'iso-8859-1');
+
+]]></codeblock>
+
+    <p>
+      When output via <codeph>toString()</codeph>, a parameterized header produces something like the following:
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$type = $message->getHeaders()->getHeader('Content-Type');
+
+$type->setValue('text/html');
+$type->setParameter('charset', 'utf-8');
+
+echo $type->toString();
+
+/*
+
+Content-Type: text/html; charset=utf-8
+
+*/
+
+]]></codeblock>
+
+    <p>
+      If the header contains any characters that are outside of the US-ASCII range
+      however, they will be encoded, just like they are for text headers.  This is
+      nothing to be concerned about since mail clients will decode them back. Likewise,
+      if the parameters contain any non-ascii characters they will be encoded so that they
+      can be transmitted safely.
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$attachment = Swift_Attachment::newInstance();
+
+$disp = $attachment->getHeaders()->getHeader('Content-Disposition');
+
+$disp->setValue('attachment');
+$disp->setParameter('filename', 'report–may.pdf');
+
+echo $disp->toString();
+
+/*
+
+Content-Disposition: attachment; filename*=utf-8''report%E2%80%93may.pdf
+
+*/
+
+]]></codeblock>
+    
+  </conbody>
+</concept>

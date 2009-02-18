@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="header-date" xml:lang="en-us">
+  <title>Mailbox (e-mail address) Headers</title>
+  <shortdesc>
+    Mailbox headers contain one or more email addresses, possibly with personalized
+    names attached to them.  The data on which they are modeled is represented by an
+    associative array of email addresses and names.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-18"/>
+      <revised modified="2009-February-18"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mailing</keyword>
+        <keyword>library</keyword>
+        <keyword>messages</keyword>
+        <keyword>headers</keyword>
+        <keyword>mailbox headers</keyword>
+        <keyword>address headers</keyword>
+        <keyword>mime</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>
+          headers
+          <indexterm>mailbox/address headers</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      Mailbox headers are probably the most complex header type to understand in
+      Swift Mailer because they accept their input as an array which can take various forms,
+      as described in <xref href="addresses.xml" type="concept" />.
+    </p>
+    
+    <p>
+      All of the headers that contain e-mail addresses in a message &#8211; with the
+      exception of <codeph>Return-Path:</codeph> which has a stricter syntax &#8211;
+      use this header type.  That is, <codeph>To:</codeph>, <codeph>From:</codeph> etc.
+    </p>
+    
+    <p>
+      You add a new mailbox header to a HeaderSet by calling the HeaderSet's
+      <codeph>addMailboxHeader()</codeph> method.
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$message = Swift_Message::newInstance();
+
+$headers = $message->getHeaders();
+
+$headers->addMailboxHeader('Your-Header-Name', array(
+  'person1@example.org' => 'Person Name One',
+  'person2@example.org',
+  'person3@example.org',
+  'person4@example.org' => 'Another named person'
+  ));
+
+]]></codeblock>
+    
+    <p>
+      Changing the value of an existing mailbox header is done by calling it's <codeph>setNameAddresses()</codeph>
+      method.
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$to = $message->getHeaders()->getHeader('To');
+
+$to->setNameAddresses(array(
+  'joe@example.org' => 'Joe Bloggs',
+  'john@example.org' => 'John Doe',
+  'no-name@example.org'
+  ));
+
+]]></codeblock>
+    
+    <p>
+      If you don't wish to concern yourself with the complicated accepted input formats
+      accepted by <codeph>setNameAddresses()</codeph> as described in <xref href="addresses.xml" type="concept" />
+      and you only want to set one or more addresses (not names) then you can just use the
+      <codeph>setAddresses()</codeph> method instead.
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$to = $message->getHeaders()->getHeader('To');
+
+$to->setAddresses(array(
+  'joe@example.org',
+  'john@example.org',
+  'no-name@example.org'
+  ));
+
+]]></codeblock>
+
+    <note>
+      Both methods will accept the above input format in practice.
+    </note>
+    
+    <p>
+      If all you want to do is set a single address in the header, you can use a
+      string as the input parameter to <codeph>setAddresses()</codeph> and/or
+      <codeph>setNameAddresses()</codeph>.
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$to = $message->getHeaders()->getHeader('To');
+
+$to->setAddresses('joe-bloggs@example.org');
+
+]]></codeblock>
+
+    <p>
+      When output via <codeph>toString()</codeph>, a mailbox header produces something like the following:
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$to = $message->getHeaders()->getHeader('To');
+
+$to->setNameAddresses(array(
+  'person1@example.org' => 'Name of Person',
+  'person2@example.org',
+  'person3@example.org' => 'Another Person'
+));
+
+echo $to->toString();
+
+/*
+
+To: Name of Person <person1@example.org>, person2@example.org, Another Person
+ <person3@example.org>
+
+*/
+
+]]></codeblock>
+    
+  </conbody>
+</concept>

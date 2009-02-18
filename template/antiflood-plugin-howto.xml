@@ -49,6 +49,13 @@
           class, passing in one or two constructor parameters.
         </cmd>
       </step>
+      
+      <step>
+        <cmd>
+          Register the plugin using the Mailer's <codeph>registerPlugin()</codeph> method.
+        </cmd>
+      </step>
+      
       <step>
         <cmd>
           Continue using Swift Mailer to send messages as normal.

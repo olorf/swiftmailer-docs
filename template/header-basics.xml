@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="header-basics" xml:lang="en-us">
+  <title>Header Basics</title>
+  <shortdesc>
+    All MIME entities in Swift Mailer &#8211; including the message itself &#8211;
+    store their headers in a single object called a HeaderSet.  This HeaderSet is
+    retrieved with the <codeph>getHeaders()</codeph> method.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-17"/>
+      <revised modified="2009-February-17"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mailing</keyword>
+        <keyword>library</keyword>
+        <keyword>messages</keyword>
+        <keyword>headers</keyword>
+        <keyword>mime</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>headers</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    
+    <p>
+      As mentioned in <xref href="mime-components.xml" type="concept" />,
+      everything that forms a part of a message in Swift Mailer is a MIME entity that
+      is represented by an instance of <codeph>Swift_Mime_MimeEntity</codeph>.  This includes
+      &#8211; most notably &#8211; the message object itself, attachments, MIME parts and
+      embedded images.  Each of these MIME entities consists of a body and a set of headers
+      that describe the body.
+    </p>
+    <p>
+      For all of the "standard" headers in these MIME entities, such as the
+      <codeph>Content-Type</codeph>, there are named methods for working with them, such
+      as <codeph>setContentType()</codeph> and <codeph>getContentType()</codeph>.  This is
+      because headers are a moderately complex area of the library.  Each header has a slightly
+      different required structure that it must meet in order to comply with the standards that
+      govern email (and that are checked by spam blockers etc).
+    </p>
+    <p>
+      You fetch the HeaderSet from a MIME entity like so:
+    </p>
+    <codeblock><![CDATA[
+
+$message = Swift_Message::newInstance();
+
+//Fetch the HeaderSet from a Message object
+$headers = $message->getHeaders();
+
+$attachment = Swift_Attachment::fromPath('document.pdf');
+
+//Fetch the HeaderSet from an attachment object
+$headers = $attachment->getHeaders();
+
+]]></codeblock>
+    
+    <p>
+      The job of the HeaderSet is to contain and manage instances of Header objects.  Depending
+      upon the MIME entity the HeaderSet came from, the contents of the HeaderSet will be different,
+      since an attachment for example has a different set of headers to those in a message.
+    </p>
+    <p>
+      You can find out what the HeaderSet contains with a quick loop, dumping out the names of the
+      headers:
+    </p>
+    
+<codeblock><![CDATA[
+
+foreach ($headers->getAll() as $header) {
+  printf("%s<br />\n", $header->getFieldName());
+}
+
+/*
+Content-Transfer-Encoding
+Content-Type
+MIME-Version
+Date
+Message-ID
+From
+Subject
+To
+*/
+
+]]></codeblock>
+    <p>
+      You can also dump out the rendered HeaderSet by calling its <codeph>toString()</codeph>
+      method:
+    </p>
+    
+<codeblock><![CDATA[
+
+echo $headers->toString();
+
+/*
+Message-ID: <1234869991.499a9ee7f1d5e@swift.generated>
+Date: Tue, 17 Feb 2009 22:26:31 +1100
+Subject: Awesome subject!
+From: sender@example.org
+To: recipient@example.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+*/
+
+]]></codeblock>
+    
+    <p>
+      Where the complexity comes in is when you want to modify an existing header.  This complexity
+      comes from the fact that each header can be of a slightly different type (such as a Date header,
+      or a header that contains email addresses, or a header that has key-value parameters on it&#8230;).
+      Each header in the HeaderSet is an instance of <codeph>Swift_Mime_Header</codeph>.  They all have common
+      functionality, but knowing exactly what type of header you're working with will allow you a little
+      more control.
+    </p>
+    <p>
+      You can determine the type of header by comparing the return value of its <codeph>getFieldType()</codeph>
+      method with the constants <codeph>TYPE_TEXT</codeph>, <codeph>TYPE_PARAMETERIZED</codeph>,
+      <codeph>TYPE_DATE</codeph>, <codeph>TYPE_MAILBOX</codeph>, <codeph>TYPE_ID</codeph> and
+      <codeph>TYPE_PATH</codeph> which are defined in <codeph>Swift_Mime_Header</codeph>.
+    </p>
+    
+<codeblock><![CDATA[
+
+foreach ($headers->getAll() as $header) {
+  switch ($header->getFieldType()) {
+    case Swift_Mime_Header::TYPE_TEXT: $type = 'text';
+      break;
+    case Swift_Mime_Header::TYPE_PARAMETERIZED: $type = 'parameterized';
+      break;
+    case Swift_Mime_Header::TYPE_MAILBOX: $type = 'mailbox';
+      break;
+    case Swift_Mime_Header::TYPE_DATE: $type = 'date';
+      break;
+    case Swift_Mime_Header::TYPE_ID: $type = 'ID';
+      break;
+    case Swift_Mime_Header::TYPE_PATH: $type = 'path';
+      break;
+  }
+  printf("%s: is a %s header<br />\n", $header->getFieldName(), $type);
+}
+
+/*
+Content-Transfer-Encoding: is a text header
+Content-Type: is a parameterized header
+MIME-Version: is a text header
+Date: is a date header
+Message-ID: is a ID header
+From: is a mailbox header
+Subject: is a text header
+To: is a mailbox header
+*/
+
+]]></codeblock>
+      
+    <p>  
+      Headers can be removed from the set, modified within the set, or added to the set.
+    </p>
+    
+    <p>
+      The following sections show you how to work with the HeaderSet and explain the details of each
+      implementation of <codeph>Swift_Mime_Header</codeph> that may exist within the HeaderSet.
+    </p>
+  </conbody>
+</concept>

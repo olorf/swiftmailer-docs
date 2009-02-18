@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="logger-plugin" xml:lang="en-us">
+  <title>Logger Plugin</title>
+  <shortdesc>
+    The Logger plugins helps with debugging during the process of sending.  It can
+    help to identify why an SMTP server is rejecting addresses, or any other
+    hard-to-find problems that may arise.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-16"/>
+      <revised modified="2009-February-16"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>logger plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>logger plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      The Logger plugin comes in two parts.  There's the plugin itself, along with
+      one of a number of possible Loggers that you may choose to use.  For example,
+      the logger may output messages directly in realtime, or it may capture messages
+      in an array.
+    </p>
+    
+    <p>
+      One other notable feature is the way in which the Logger plugin changes Exception
+      messages.  If Exceptions are being thrown but the error message does not provide
+      conclusive information as to the source of the problem (such as an ambiguous
+      SMTP error) the Logger plugin includes the entire SMTP transcript in the error
+      message so that debugging becomes a simpler task.
+    </p>
+    
+    <p>
+      There are a few available Loggers included with Swift Mailer, but writing
+      your own implementation is incredibly simple and is achieved by creating a
+      short class that implements the <codeph>Swift_Plugins_Logger</codeph> interface.
+    </p>
+    
+    <simpletable>
+    
+      <sthead>
+        <stentry>Logger Class</stentry>
+        <stentry>Description</stentry>
+      </sthead>
+    
+      <strow>
+       <stentry><codeph>Swift_Plugins_Loggers_ArrayLogger</codeph></stentry>
+       <stentry>Keeps a collection of log messages inside an array.  The array content can be cleared or dumped out to the screen.</stentry>
+      </strow>
+    
+      <strow>
+       <stentry><codeph>Swift_Plugins_Loggers_EchoLogger</codeph></stentry>
+       <stentry>Prints output to the screen in realtime. Handy for very rudimentary debug output.</stentry>
+      </strow>
+    
+    </simpletable>
+  </conbody>
+</concept>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="header-date" xml:lang="en-us">
+  <title>Date Headers</title>
+  <shortdesc>
+    Date headers contains an RFC 2822 formatted date (i.e. what PHP's <codeph>date('r')</codeph>
+    returns).  They are used anywhere a date or time is needed to be presented as a
+    message header.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-February-17"/>
+      <revised modified="2009-February-17"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>mailing</keyword>
+        <keyword>library</keyword>
+        <keyword>messages</keyword>
+        <keyword>headers</keyword>
+        <keyword>date headers</keyword>
+        <keyword>mime</keyword>
+        <indexterm>
+          messages
+          <indexterm>headers</indexterm>
+        </indexterm>
+        <indexterm>
+          headers
+          <indexterm>date headers</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      The data on which a date header is modeled is simply a UNIX timestamp such as that
+      returned by <codeph>time()</codeph> or <codeph>strtotime()</codeph>.  The timestamp
+      is used to create a correctly structured RFC 2822 formatted date such as
+      <codeph>Tue, 17 Feb 2009 22:26:31 +1100</codeph>.
+    </p>
+    <p>
+      The obvious place this header type is used is in the <codeph>Date:</codeph> header
+      of the message itself.
+    </p>
+    <p>
+      It's easy to add a new date header to a HeaderSet.  You do this by calling
+      the HeaderSet's <codeph>addDateHeader()</codeph> method.
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$message = Swift_Message::newInstance();
+
+$headers = $message->getHeaders();
+
+$headers->addDateHeader('Your-Header-Name', strtotime('3 days ago'));
+
+]]></codeblock>
+    
+    <p>
+      Changing the value of an existing date header is done by calling it's <codeph>setTimestamp()</codeph>
+      method.
+    </p>
+<codeblock><![CDATA[
+<?php
+
+$date = $message->getHeaders()->getHeader('Date');
+
+$date->setTimestamp(time());
+
+]]></codeblock>
+
+    <p>
+      When output via <codeph>toString()</codeph>, a date header produces something like the following:
+    </p>
+    
+<codeblock><![CDATA[
+<?php
+
+$date = $message->getHeaders()->getHeader('Date');
+
+echo $date->toString();
+
+/*
+
+Date: Wed, 18 Feb 2009 13:35:02 +1100
+
+*/
+
+]]></codeblock>
+    
+  </conbody>
+</concept>

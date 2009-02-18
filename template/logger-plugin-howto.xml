@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
   "../dtd/task.dtd">
-<task id="throttler-ref" xml:lang="en-us">
-  <title>Using the Throttler Plugin</title>
+<task id="logger-ref" xml:lang="en-us">
+  <title>Using the Logger Plugin</title>
   <shortdesc>
-    The Throttler Plugin &#8211; like all plugins &#8211; is added with the Mailer
-    class' <codeph>registerPlugin()</codeph> method.  It has two required constructor
-    parameters that tell it how to do its rate-limiting.
+    The Logger Plugin &#8211; like all plugins &#8211; is added with the Mailer
+    class' <codeph>registerPlugin()</codeph> method.  It accepts an instance of
+    <codeph>Swift_Plugins_Logger</codeph> in its constructor.
   </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
@@ -23,10 +23,10 @@
         <keyword>swift mailer</keyword>
         <keyword>php</keyword>
         <keyword>plugins</keyword>
-        <keyword>throttler plugin</keyword>
+        <keyword>logger plugin</keyword>
         <indexterm>
           plugins
-          <indexterm>throttler plugin</indexterm>
+          <indexterm>logger plugin</indexterm>
         </indexterm>
       </keywords>
     </metadata>
@@ -34,7 +34,7 @@
   <taskbody>
     <context>
       <p>
-        To use the Throttler plugin:
+        To use the Logger plugin:
       </p>
     </context>
     <steps>
@@ -43,11 +43,17 @@
           Create an instance of the Mailer using any Transport you choose.
         </cmd>
       </step>
+      
       <step>
         <cmd>
-          Create an instance of the <codeph>Swift_Plugins_ThrottlerPlugin</codeph>
-          class, passing the number of emails, or bytes you wish to limit by, along
-          with the mode you're using.
+          Create an instance of the a Logger implementation of <codeph>Swift_Plugins_Logger</codeph>.
+        </cmd>
+      </step>
+      
+      <step>
+        <cmd>
+          Create an instance of the <codeph>Swift_Plugins_LoggerPlugin</codeph>
+          class, passing the created Logger instance to its constructor.
         </cmd>
       </step>
       
@@ -62,18 +68,20 @@
           Continue using Swift Mailer to send messages as normal.
         </cmd>
       </step>
+      
+      <step>
+        <cmd>
+          Dump the contents of the log with the logger's <codeph>dump()</codeph> method.
+        </cmd>
+      </step>
     </steps>
     
     <result>
       <p>
-        When Swift Mailer sends messages it will keep track of the rate at which sending
-        messages is occuring.  If it realises that sending is happening too fast, it will
-        cause your program to <codeph>sleep()</codeph> for enough time to average out
-        the rate.
-      </p>
-      <p>
-        Both <codeph>batchSend()</codeph> and <codeph>send()</codeph> methods will
-        work with this plugin.
+        When Swift Mailer sends messages it will keep a log of all the interactions with
+        the underlying Transport being used.  Depending upon the Logger that has been
+        used the behaviour will differ, but all implementations offer a way to get the
+        contents of the log.
       </p>
     </result>
     
@@ -88,22 +96,25 @@ $mailer = Swift_Mailer::newInstance(
   Swift_SmtpTransport::newInstance('smtp.example.org', 25)
 );
 
-//Rate limit to 100 emails per-minute
-$mailer->registerPlugin(new Swift_Plugins_ThrottlerPlugin(
-  100, Swift_Plugins_ThrottlerPlugin::MESSAGES_PER_MINUTE
-));
+//To use the ArrayLogger
+$logger = new Swift_Plugins_Loggers_ArrayLogger();
+$mailer->registerPlugin(new Swift_Plugins_LoggerPlugin($logger));
 
-//Rate limit to 10MB per-minute
-$mailer->registerPlugin(new Swift_Plugins_ThrottlerPlugin(
-  1024 * 1024 * 10, Swift_Plugins_ThrottlerPlugin::BYTES_PER_MINUTE
-));
+//Or to use the Echo Logger
+$logger = new Swift_Plugins_Loggers_EchoLogger();
+$mailer->registerPlugin($logger);
 
-//Continue sending as normal  
+//Continue sending as normal
 for ($lotsOfRecipients as $recipient) {
   ...
   
   $mailer->send( ... );
 }
+
+// Dump the log contents
+// NOTE: The EchoLogger dumps in realtime so dump() does nothing for it
+echo $logger->dump();
+
 
 ]]></codeblock>
     </example>

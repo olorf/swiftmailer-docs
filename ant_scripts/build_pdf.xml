@@ -25,9 +25,6 @@
     <fileset dir="${dita.lib.dir}">
       <include name="**/*.jar" />
     </fileset>
-    <fileset dir="${xep.lib.dir}">
-      <include name="**/*.jar" />
-    </fileset>    
   </path>
   
   <!-- Process the PDF output -->
