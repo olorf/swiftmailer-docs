@@ -102,7 +102,7 @@ $mailer->registerPlugin(new Swift_Plugins_LoggerPlugin($logger));
 
 //Or to use the Echo Logger
 $logger = new Swift_Plugins_Loggers_EchoLogger();
-$mailer->registerPlugin($logger);
+$mailer->registerPlugin(new Swift_Plugins_LoggerPlugin($logger));
 
 //Continue sending as normal
 for ($lotsOfRecipients as $recipient) {
