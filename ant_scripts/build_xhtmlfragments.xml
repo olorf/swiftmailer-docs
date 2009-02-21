@@ -23,12 +23,80 @@
   <!-- Path reference for dita-ot jars -->
   <path id="dost.class.path">
     <fileset dir="${dita.lib.dir}">
-      <include name="**/*.jar" />                                                  
+      <include name="**/*.jar" />
     </fileset>
   </path>
+  
+  <!-- Process the XHTML fragments and copy them to docs.dir -->
+  <target name="generate-docs" depends="dita2xhtmlfragments">
+    <copy todir="${docs.dir}">
+      <fileset dir="${base}/output/xhtmlfragments" />
+    </copy>
+  </target>
 
   <!-- Process the XHTML fragments -->
-  <target name="dita2xhtmlfragments" depends="dita2xhtml">
+  <target name="dita2xhtmlfragments"
+    depends="dita2xhtmlfragments-body, dita2xhtmlfragments-head">
+  </target>
+  
+  <!-- Process the XHTML fragment body -->
+  <target name="dita2xhtmlfragments-body">
+    <antcall target="dita2xhtml">
+      <param name="output.dir" value="${base}/output/xhtmlfragments/body" />
+      <param name="args.xsl" value="${xsl.dir}/dita2xhtmlfragment-body.xsl" />
+    </antcall>
+  </target>
+  
+  <!-- Process the XHTML fragment meta data -->
+  <target name="dita2xhtmlfragments-head">
+    <antcall target="dita2xhtml">
+      <param name="output.dir" value="${base}/output/xhtmlfragments/head" />
+      <param name="args.xsl" value="${xsl.dir}/dita2xhtmlfragment-head.xsl" />
+    </antcall>
+  </target>
+  
+  <!-- The following overrides the imported build script to use a different TOC Stylsheet -->
+  
+  <!--<target name="dita.map.xhtml.toc"
+      unless="noMap" if="old.transform"
+      description="Build HTML TOC file">
+    <xslt processor="trax"
+        basedir="${dita.temp.dir}"
+        destdir="${output.dir}"
+        includes="${user.input.file}"
+        classpathref="dost.class.path"
+        style="${xsl.dir}/map2xhtmfragmenttoc.xsl">
+      <param name="DITAEXT" expression="${dita.ext}" if="dita.ext" />
+      <param name="OUTEXT" expression="${out.ext}" if="out.ext" />
+      <param name="contenttarget" expression="${args.xhtml.contenttarget}" if="args.xhtml.contenttarget"/>
+      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
+      <param name="OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class" />
+      <mapper type="glob"
+          from="*${dita.input.filename}"
+          to="*${args.xhtml.toc}${out.ext}" />
+    </xslt>
+  </target>-->
+  
+  <target name="dita.out.map.xhtml.toc"
+      unless="noMap" if="inner.transform"
+      description="Build HTML TOC file,which will adjust the directory">
+    <xslt processor="trax"
+        basedir="${dita.temp.dir}"
+        destdir="${output.dir}/.."
+        includes="${user.input.file}"
+        classpathref="dost.class.path"
+        style="${xsl.dir}/map2xhtmfragmenttoc.xsl">
+      <param name="DITAEXT" expression="${dita.ext}" if="dita.ext" />
+      <param name="OUTEXT" expression="${out.ext}" if="out.ext" />
+      <param name="contenttarget" expression="${args.xhtml.contenttarget}" if="args.xhtml.contenttarget"/>
+      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
+      <param name="OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class" />
+      <mapper type="glob"
+          from="${user.input.file}"
+          to="${args.xhtml.toc}${out.ext}" />
+    </xslt>
   </target>
   
 </project>

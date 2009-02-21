@@ -4,9 +4,7 @@
 <!-- It removes the doctype and then includes some overriding stylesheets -->
 
 <!-- Global overrides -->
-<xsl:import href="xslhtmlfragment/dita2htmlfragmentImpl.xsl"></xsl:import>
-<!-- Hyperlink overrides -->
-<xsl:import href="xslhtmlfragment/rel-links.xsl"></xsl:import>
+<xsl:import href="xslhtmlfragment/dita2htmlfragmentImpl-body.xsl"></xsl:import>
 
 <xsl:import href="xslhtml/taskdisplay.xsl"></xsl:import>
 <xsl:import href="xslhtml/refdisplay.xsl"></xsl:import>

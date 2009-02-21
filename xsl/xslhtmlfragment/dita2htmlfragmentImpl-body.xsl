@@ -2,6 +2,8 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="dita2htmlImpl-nodoctype.xsl"/>
+<!-- Hyperlink overrides -->
+<xsl:import href="rel-links.xsl"></xsl:import>
 
 <!-- Overridden to exclude <head> -->
 <xsl:template name="chapter-setup">
