@@ -54,7 +54,7 @@
       It's easy to add a new date header to a HeaderSet.  You do this by calling
       the HeaderSet's <codeph>addDateHeader()</codeph> method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -69,7 +69,7 @@ $headers->addDateHeader('Your-Header-Name', strtotime('3 days ago'));
       Changing the value of an existing date header is done by calling it's <codeph>setTimestamp()</codeph>
       method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $date = $message->getHeaders()->getHeader('Date');
@@ -82,7 +82,7 @@ $date->setTimestamp(time());
       When output via <codeph>toString()</codeph>, a date header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $date = $message->getHeaders()->getHeader('Date');

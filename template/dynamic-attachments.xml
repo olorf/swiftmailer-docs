@@ -72,7 +72,7 @@
     </result>
     
     <example id="attach_dynamic">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create your file contents in the normal way, but don't write them to disk
 $data = create_my_pdf_data();
 

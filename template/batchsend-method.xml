@@ -89,7 +89,7 @@
     </result>
     
     <example id="mailer_batchsend">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 require_once 'lib/swift_required.php';

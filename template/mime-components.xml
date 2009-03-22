@@ -51,7 +51,7 @@
         The basic units of each MIME entity &#8211; be it the Message itself, or an Attachment &#8211;
         are its Headers and its body:
       
-<codeblock>Header-Name: A header value
+<codeblock  outputclass="kodify">Header-Name: A header value
 Other-Header: Another value
 
 The body content itself</codeblock>

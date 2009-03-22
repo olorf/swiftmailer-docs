@@ -58,7 +58,7 @@
       <codeph>addMailboxHeader()</codeph> method.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -79,7 +79,7 @@ $headers->addMailboxHeader('Your-Header-Name', array(
       method.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $to = $message->getHeaders()->getHeader('To');
@@ -99,7 +99,7 @@ $to->setNameAddresses(array(
       <codeph>setAddresses()</codeph> method instead.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $to = $message->getHeaders()->getHeader('To');
@@ -122,7 +122,7 @@ $to->setAddresses(array(
       <codeph>setNameAddresses()</codeph>.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $to = $message->getHeaders()->getHeader('To');
@@ -135,7 +135,7 @@ $to->setAddresses('joe-bloggs@example.org');
       When output via <codeph>toString()</codeph>, a mailbox header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $to = $message->getHeaders()->getHeader('To');

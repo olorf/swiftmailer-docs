@@ -57,7 +57,7 @@
     </result>
     
     <example id="setreturnpath">
-<codeblock><![CDATA[$message->setReturnPath('bounces@address.tld');]]></codeblock>
+<codeblock  outputclass="kodify php"><![CDATA[$message->setReturnPath('bounces@address.tld');]]></codeblock>
     </example>
     
   </taskbody>

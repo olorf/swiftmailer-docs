@@ -71,7 +71,7 @@
     </result>
     
     <example id="command_upload">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify"><![CDATA[
 chrisbook:Swift-4.0.0-dev chris$ rsync -rvz lib d11wtq@swiftmailer.org:swiftmailer
 building file list ... done
 created directory swiftmailer

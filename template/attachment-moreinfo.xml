@@ -62,7 +62,7 @@
         file containing the phrase "Hello World!", then we'll call it's <codeph>toString()</codeph>
         method to take a look at it, without the rest of the message&#8230; yes you can do that!
       </p>
-<codeblock id="attachment_tostring"><![CDATA[
+<codeblock  id="attachment_tostring" outputclass="kodify php"><![CDATA[
 <?php
 
 require_once 'lib/swift_required.php';
@@ -71,7 +71,7 @@ $attachment = Swift_Attachment::fromPath('hello-world.txt');
 echo $attachment->toString();
 
 ]]></codeblock>
-<codeblock id="attachment_structure"><![CDATA[Content-Type: text/plain; name=hello-world.txt
+<codeblock  id="attachment_structure" outputclass="kodify"><![CDATA[Content-Type: text/plain; name=hello-world.txt
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename=hello-world.txt
 
@@ -94,7 +94,7 @@ SGVsbG8gV29ybGQhCg==
         source.
       </p>
       
-<codeblock id="adding_attachment"><![CDATA[
+<codeblock  id="adding_attachment" outputclass="kodify php"><![CDATA[
 $message = Swift_Message::newInstance('Example')
   ->setTo('recipient@example.org')
   ->setFrom('sender@example.org')
@@ -106,7 +106,7 @@ echo $message->toString();
 
 ]]></codeblock>
 
-<codeblock id="message_attachment_structure"><![CDATA[Message-ID: <1230249512.49541e2870f66@swift.generated>
+<codeblock  id="message_attachment_structure" outputclass="kodify"><![CDATA[Message-ID: <1230249512.49541e2870f66@swift.generated>
 Date: Fri, 26 Dec 2008 10:58:32 +1100
 Subject: Example
 From: sender@example.org
@@ -147,7 +147,7 @@ SGVsbG8gV29ybGQhCg==
         Now lets do the same test with a message containing both HTML and plain text parts.
       </p>
 
-<codeblock id="message_addpart"><![CDATA[
+<codeblock  id="message_addpart" outputclass="kodify php"><![CDATA[
 $message = Swift_Message::newInstance('Example')
   ->setTo('recipient@example.org')
   ->setFrom('sender@example.org')
@@ -159,7 +159,7 @@ echo $message->toString();
 
 ]]></codeblock>
 
-<codeblock id="message_mimepart_structure"><![CDATA[Message-ID: <1230250405.495421a5bc8eb@swift.generated>
+<codeblock  id="message_mimepart_structure" outputclass="kodify"><![CDATA[Message-ID: <1230250405.495421a5bc8eb@swift.generated>
 Date: Fri, 26 Dec 2008 11:13:25 +1100
 Subject: Example
 From: sender@example.org
@@ -190,7 +190,7 @@ This is HTML
         Let's extract the plain text part and have a closer look.
       </p>
       
-<codeblock id="mimepart_structure"><![CDATA[Content-Type: text/plain; charset=utf-8
+<codeblock  id="mimepart_structure" outputclass="kodify"><![CDATA[Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
 This is PLAIN TEXT
@@ -209,7 +209,7 @@ This is PLAIN TEXT
         You can do this the long way around yourself and see what happens.
       </p>
       
-<codeblock id="attach_mimepart"><![CDATA[
+<codeblock  id="attach_mimepart" outputclass="kodify php"><![CDATA[
 $message = Swift_Message::newInstance('Example')
   ->setTo('recipient@example.org')
   ->setFrom('sender@example.org')

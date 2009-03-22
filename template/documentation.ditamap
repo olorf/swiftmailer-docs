@@ -3,131 +3,132 @@
   "../dtd/map.dtd">
 <map title="Swift Mailer User Guide" collection-type="sequence">
   
-  <topicref href="start.xml" type="topic" collection-type="sequence" />
-  
-  <topicref href="introduction.xml" type="topic" collection-type="sequence">
-    <topicref href="book-organization.xml" type="concept" collection-type="sequence">
-      <topicref href="book-codesamples.xml" type="concept" />
+  <topicref href="introduction.xml" collection-type="sequence">
+    <topicref href="book-organization.xml" collection-type="sequence">
+      <topicref href="book-codesamples.xml" />
     </topicref>
-    <topicref href="history.xml" type="concept" />
-    <topicref href="library-vs-application.xml" type="concept" />
+    <topicref href="history.xml" />
+    <topicref href="library-vs-application.xml" />
   </topicref>
 
-  <topicref href="overview.xml" type="topic" collection-type="sequence">
-    <topicref href="system-requirements.xml" type="concept" collection-type="sequence"/>
-    <topicref href="library-components.xml" type="topic" collection-type="sequence">
-      <topicref href="mailer-component.xml" type="concept"/>
-      <topicref href="transport-components.xml" type="concept"/>
-      <topicref href="mime-components.xml" type="concept"/>
-      <topicref href="encoder-components.xml" type="concept"/>
-      <topicref href="plugin-components.xml" type="concept"/>
+  <topicref href="overview.xml" collection-type="sequence">
+    <topicref href="system-requirements.xml" />
+    <topicref href="library-components.xml" collection-type="sequence">
+      <topicref href="mailer-component.xml"/>
+      <topicref href="transport-components.xml"/>
+      <topicref href="mime-components.xml"/>
+      <topicref href="encoder-components.xml"/>
+      <topicref href="plugin-components.xml"/>
     </topicref>
   </topicref>
   
-  <topicref href="installing.xml" type="topic" collection-type="sequence">
-    <topicref href="installing-from-download.xml" type="concept" collection-type="sequence">
-      <topicref href="package-extracting.xml" type="task" />
+  <topicref href="installing.xml" collection-type="sequence">
+    <topicref href="installing-from-download.xml" collection-type="sequence">
+      <topicref href="package-extracting.xml" />
     </topicref>
-    <topicref href="installing-from-git.xml" type="concept" collection-type="sequence">
-      <topicref href="git-clone.xml" type="task" />
+    <topicref href="installing-from-git.xml" collection-type="sequence">
+      <topicref href="git-clone.xml" />
     </topicref>
-    <topicref href="uploading-files.xml" type="task" />
+    <topicref href="uploading-files.xml" />
   </topicref>
   
-  <topicref href="help-resources.xml" type="topic" collection-type="sequence">
-    <topicref href="reporting-bugs.xml" type="concept" />
-    <topicref href="google-group.xml" type="concept" />
-    <topicref href="help-forum.xml" type="concept" />
+  <topicref href="help-resources.xml" collection-type="sequence">
+    <topicref href="reporting-bugs.xml" />
+    <topicref href="google-group.xml" />
+    <topicref href="help-forum.xml" />
   </topicref>
   
-  <topicref href="including-the-files.xml" type="task" />
+  <topicref href="including-the-files.xml" />
   
-  <topicref href="messages.xml" type="topic" collection-type="sequence">
-    <topicref href="message-quickref.xml" type="task" />
-    <topicref href="message-basics.xml" type="concept" />
-    <topicref href="message-content.xml" type="concept" collection-type="sequence">
-      <topicref href="message-subject.xml" type="task" />
-      <topicref href="message-body.xml" type="task" />
-      <topicref href="message-attachments.xml" type="concept" collection-type="sequence">
-        <topicref href="attaching-files.xml" type="task" />
-        <topicref href="attachment-filename.xml" type="task" />
-        <topicref href="dynamic-attachments.xml" type="task" />
-        <topicref href="attachment-disposition.xml" type="task" />
-        <!--<topicref href="attachment-moreinfo.xml" type="concept" />-->
+  <topicref href="messages.xml" collection-type="sequence">
+    <topicref href="message-quickref.xml" />
+    <topicref href="message-basics.xml" />
+    <topicref href="message-content.xml" collection-type="sequence">
+      <topicref href="message-subject.xml" />
+      <topicref href="message-body.xml" />
+      <topicref href="message-attachments.xml" collection-type="sequence">
+        <topicref href="attaching-files.xml" />
+        <topicref href="attachment-filename.xml" />
+        <topicref href="dynamic-attachments.xml" />
+        <topicref href="attachment-disposition.xml" />
       </topicref>
-      <topicref href="inline-message-media.xml" type="concept" collection-type="sequence">
-        <topicref href="embedding-files.xml" type="task" />
-        <topicref href="embedding-dynamic-content.xml" type="task" />
-      </topicref>
-      <topicref href="message-charset.xml" type="task" />
-      <topicref href="message-line-length.xml" type="task" />
-    </topicref>
-    <topicref href="recipients.xml" type="concept" collection-type="sequence">
-      <topicref href="recipients-to.xml" type="task" />
-      <topicref href="recipients-cc.xml" type="task" />
-      <topicref href="recipients-bcc.xml" type="task" />
-    </topicref>
-    <topicref href="senders.xml" type="concept" collection-type="sequence">
-      <topicref href="senders-from.xml" type="task" />
-      <topicref href="senders-sender.xml" type="task" />
-      <topicref href="return-path.xml" type="task" />
-    </topicref>
-    <topicref href="read-receipts.xml" type="task" />
-    <topicref href="message-priority.xml" type="task" />
-  </topicref>
-  
-  <topicref href="headers.xml" type="topic" collection-type="sequence">
-    <topicref href="header-basics.xml" type="concept" />
-    <topicref href="header-types.xml" type="concept" collection-type="sequence">
-      <topicref href="header-text.xml" type="concept" />
-      <topicref href="header-parameterized.xml" type="concept" />
-      <topicref href="header-date.xml" type="concept" />
-      <topicref href="header-mailbox.xml" type="concept" />
-      <topicref href="header-id.xml" type="concept" />
-      <topicref href="header-path.xml" type="concept" />
-    </topicref>
-    <topicref href="header-operations.xml" type="concept" collection-type="sequence">
-      <topicref href="add-header.xml" type="task" />
-      <topicref href="get-header.xml" type="task" />
-      <topicref href="has-header.xml" type="task" />
-      <topicref href="remove-header.xml" type="task" />
-      <topicref href="modify-header.xml" type="task" />
-    </topicref>
-  </topicref>
-  
-  <topicref href="sending.xml" type="topic" collection-type="sequence">
-    <topicref href="sending-quickref.xml" type="task" />
-    <topicref href="transport-types.xml" type="concept" collection-type="sequence">
-      <topicref href="smtp-transport.xml" type="concept">
-        <topicref href="smtp-howto.xml" type="task" />
-        <topicref href="smtp-encryption.xml" type="task" />
-        <topicref href="smtp-authentication.xml" type="task" />
-      </topicref>
-      <topicref href="sendmail-transport.xml" type="concept" collection-type="sequence">
-        <topicref href="sendmail-howto.xml" type="task" />
-      </topicref>
-      <topicref href="mail-transport.xml" type="concept" collection-type="sequence">
-        <topicref href="mail-transport-howto.xml" type="task" />
+      <topicref href="inline-message-media.xml" collection-type="sequence">
+        <topicref href="embedding-files.xml" />
+        <topicref href="embedding-dynamic-content.xml" />
       </topicref>
     </topicref>
-    <topicref href="sending-methods.xml" type="concept" collection-type="sequence">
-      <topicref href="send-method.xml" type="task" />
-      <topicref href="batchsend-method.xml" type="task" />
+    <topicref href="recipients.xml" collection-type="sequence">
+      <topicref href="recipients-to.xml" />
+      <topicref href="recipients-cc.xml" />
+      <topicref href="recipients-bcc.xml" />
     </topicref>
-    <topicref href="finding-failures.xml" type="concept" collection-type="sequence">
-      <topicref href="failures-byreference.xml" type="task" />
+    <topicref href="senders.xml" collection-type="sequence">
+      <topicref href="senders-from.xml" />
+      <topicref href="senders-sender.xml" />
+      <topicref href="return-path.xml" />
+    </topicref>
+    <topicref href="read-receipts.xml" />
+    <topicref href="message-charset.xml" />
+    <topicref href="message-line-length.xml" />
+    <topicref href="message-priority.xml" />
+  </topicref>
+  
+  <topicref href="headers.xml" collection-type="sequence">
+    <topicref href="header-basics.xml" />
+    <topicref href="header-types.xml" collection-type="sequence">
+      <topicref href="header-text.xml" />
+      <topicref href="header-parameterized.xml" />
+      <topicref href="header-date.xml" />
+      <topicref href="header-mailbox.xml" />
+      <topicref href="header-id.xml" />
+      <topicref href="header-path.xml" />
+    </topicref>
+    <topicref href="header-operations.xml" collection-type="sequence">
+      <topicref href="add-header.xml" />
+      <topicref href="get-header.xml" />
+      <topicref href="has-header.xml" />
+      <topicref href="remove-header.xml" />
+      <topicref href="modify-header.xml" />
     </topicref>
   </topicref>
   
-  <topicref href="plugins.xml" type="topic" collection-type="sequence">
-    <topicref href="antiflood-plugin.xml" type="concept" collection-type="sequence">
-      <topicref href="antiflood-plugin-howto.xml" type="task" />
+  <topicref href="sending.xml" collection-type="sequence">
+    <topicref href="sending-quickref.xml" />
+    <topicref href="transport-types.xml" collection-type="sequence">
+      <topicref href="smtp-transport.xml" collection-type="sequence">
+        <topicref href="smtp-howto.xml" />
+        <topicref href="smtp-encryption.xml" />
+        <topicref href="smtp-authentication.xml" />
+      </topicref>
+      <topicref href="sendmail-transport.xml" collection-type="sequence">
+        <topicref href="sendmail-howto.xml" />
+      </topicref>
+      <topicref href="mail-transport.xml" collection-type="sequence">
+        <topicref href="mail-transport-howto.xml" />
+      </topicref>
     </topicref>
-    <topicref href="throttler-plugin.xml" type="concept" collection-type="sequence">
-      <topicref href="throttler-plugin-howto.xml" type="task" />
+    <topicref href="sending-methods.xml" collection-type="sequence">
+      <topicref href="send-method.xml" />
+      <topicref href="batchsend-method.xml" />
     </topicref>
-    <topicref href="logger-plugin.xml" type="concept" collection-type="sequence">
-      <topicref href="logger-plugin-howto.xml" type="task" />
+    <topicref href="finding-failures.xml" collection-type="sequence">
+      <topicref href="failures-byreference.xml" />
+    </topicref>
+  </topicref>
+  
+  <topicref href="plugins.xml" collection-type="sequence">
+    <topicref href="antiflood-plugin.xml" collection-type="sequence">
+      <topicref href="antiflood-plugin-howto.xml" />
+    </topicref>
+    <topicref href="throttler-plugin.xml" collection-type="sequence">
+      <topicref href="throttler-plugin-howto.xml" />
+    </topicref>
+    <topicref href="logger-plugin.xml" collection-type="sequence">
+      <topicref href="logger-plugin-howto.xml" />
+    </topicref>
+    <topicref href="decorator-plugin.xml" collection-type="sequence">
+      <topicref href="decorator-plugin-howto.xml" />
+      <topicref href="decorator-plugin-replacements.xml" />
     </topicref>
   </topicref>
   

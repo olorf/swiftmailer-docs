@@ -22,7 +22,23 @@
   </prolog>
   <body>
     <p>
-      Welcome to Swift Mailer documentation
+      You've found the documentation, now it's time to go away and make yourself
+      one of these&#8230;
     </p>
+    
+    <image href="images/docs/coffee.jpg" placement="break" />
+    
+    <p>
+      make sure you have your bottom parked comfortably on one of these&#8230;
+    </p>
+    
+    <image href="images/docs/chair.jpg" placement="break" />
+    
+    <p>
+      and then finish what you came here to do&#8230;
+    </p>
+    
+    <image href="images/docs/glasses.jpg" placement="break" />
+    
   </body>
 </topic>

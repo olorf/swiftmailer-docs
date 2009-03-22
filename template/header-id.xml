@@ -56,7 +56,7 @@
       It's easy to add a new ID header to a HeaderSet.  You do this by calling
       the HeaderSet's <codeph>addIdHeader()</codeph> method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -71,7 +71,7 @@ $headers->addIdHeader('Your-Header-Name', '123456.unqiue@example.org');
       Changing the value of an existing date header is done by calling its <codeph>setId()</codeph>
       method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $msgId = $message->getHeaders()->getHeader('Message-ID');
@@ -84,7 +84,7 @@ $msgId->setId(time() . '.' . uniqid('thing') . '@example.org');
       When output via <codeph>toString()</codeph>, an ID header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $msgId = $message->getHeaders()->getHeader('Message-ID');

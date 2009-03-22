@@ -55,7 +55,7 @@
       It's easy to add a new text header to a HeaderSet.  You do this by calling
       the HeaderSet's <codeph>addTextHeader()</codeph> method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -70,7 +70,7 @@ $headers->addTextHeader('Your-Header-Name', 'the header value');
       Changing the value of an existing text header is done by calling it's <codeph>setValue()</codeph>
       method.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $subject = $message->getHeaders()->getHeader('Subject');
@@ -83,7 +83,7 @@ $subject->setValue('new subject');
       When output via <codeph>toString()</codeph>, a text header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $subject = $message->getHeaders()->getHeader('Subject');
@@ -106,7 +106,7 @@ Subject: amazing subject line
       mail clients will decode them back.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $subject = $message->getHeaders()->getHeader('Subject');

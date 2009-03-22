@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
-  "../dtd/task.dtd">
-<task id="setting-bcc" xml:lang="en-us">
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="setting-bcc" xml:lang="en-us">
   <title>Setting <codeph>Bcc:</codeph> Recipients</title>
   <shortdesc>
     <codeph>Bcc:</codeph> recipients receive a copy of the message without anybody
-    else knowing it, and are set with the <codeph>setBcc()</codeph> method of the message.
+    else knowing it, and are set with the <codeph>setBcc()</codeph> or
+    <codeph>addBcc</codeph> methods of the message.
   </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
@@ -15,7 +16,7 @@
     </copyright>
     <critdates>
       <created date="2008-December-26"/>
-      <revised modified="2008-December-26"/>
+      <revised modified="2009-March-22"/>
     </critdates>
     <metadata>
       <keywords>
@@ -30,35 +31,41 @@
       </keywords>
     </metadata>
   </prolog>
-  <taskbody>
-    <context>
-      <p>
-        To set <codeph>Bcc:</codeph> recipients:
-      </p>
-    </context>
-    <steps-unordered>
-      <step>
-        <cmd>
-          Call the <codeph>setBcc()</codeph> method on the Message.
-        </cmd>
-      </step>
-    </steps-unordered>
+  <conbody>
+    <p>
+      To set <codeph>Bcc:</codeph> recipients, create the message object using either
+      <codeph>new Swift_Message( ... )</codeph> or <codeph>Swift_Message::newInstance( ... )</codeph>,
+      then call the <codeph>setBcc()</codeph> method with a complete array of addresses, or use the
+      <codeph>addBcc()</codeph> method to iteratively add recipients.
+    </p>
     
-    <result>
-      <p>
-        Only the individual <codeph>Bcc:</codeph> recipient will see their address in
-        the message headers.  Other recipients (including other <codeph>Bcc:</codeph>
-        recipients) will not see the address.
-      </p>
-      <note>
-        You should not use <codeph>Bcc:</codeph> recipients as a mechanism for sending
-        bulk email with undisclosed recipients.  You should perform a <codeph>batchSend()</codeph>
-        instead.
-      </note>
-    </result>
+    <p>
+      The <codeph>setBcc()</codeph> method accepts input in various formats as described in the
+      chapter, <xref href="addresses.xml" type="concept" />.  The <codeph>addBcc()</codeph> method
+      takes either one or two parameters.  The first being the email address and the second optional
+      parameter being the name of the recipient.
+    </p>
+    
+    <p>
+      Only the individual <codeph>Bcc:</codeph> recipient will see their address in
+      the message headers.  Other recipients (including other <codeph>Bcc:</codeph>
+      recipients) will not see the address.
+    </p>
+    
+    <note>
+      You should not use <codeph>Bcc:</codeph> recipients as a mechanism for sending
+      bulk email with undisclosed recipients.  You should perform a <codeph>batchSend()</codeph>
+      instead.
+    </note>
+    
+    <note>
+      Multiple calls to <codeph>setBcc()</codeph> will not add new recipients &#8211; each call overrides
+      the previous calls.  If you want to iteratively add Bcc: recipients, use the <codeph>addBcc()</codeph> method.
+    </note>
     
     <example id="setbcc">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
+//Using setBcc() to set all recipients in one go
 $message->setBcc(array(
   'person1@example.org',
   'person2@otherdomain.org' => 'Person 2 Name',
@@ -66,8 +73,13 @@ $message->setBcc(array(
   'person4@example.org',
   'person5@example.org' => 'Person 5 Name'
 ));
+
+//Using addBcc() to add recipients iteratively
+$message->addBcc('person1@example.org');
+$message->addBcc('person2@example.org', 'Person 2 Name');
+
 ]]></codeblock>
     </example>
     
-  </taskbody>
-</task>
+  </conbody>
+</concept>

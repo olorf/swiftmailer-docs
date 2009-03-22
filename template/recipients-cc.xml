@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
-  "../dtd/task.dtd">
-<task id="setting-cc" xml:lang="en-us">
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="setting-cc" xml:lang="en-us">
   <title>Setting <codeph>Cc:</codeph> Recipients</title>
   <shortdesc>
-    <codeph>Cc:</codeph> recipients receive a copy of the message and are set with the
-    <codeph>setCc()</codeph> method of the message.
+    <codeph>Cc:</codeph> recipients are set with the
+    <codeph>setCc()</codeph> or <codeph>addCc()</codeph> methods of the message.
   </shortdesc>
   <prolog>
     <author type="creator">Chris Corbyn</author>
@@ -15,7 +15,7 @@
     </copyright>
     <critdates>
       <created date="2008-December-26"/>
-      <revised modified="2008-December-26"/>
+      <revised modified="2009-March-22"/>
     </critdates>
     <metadata>
       <keywords>
@@ -30,29 +30,34 @@
       </keywords>
     </metadata>
   </prolog>
-  <taskbody>
-    <context>
-      <p>
-        To set <codeph>Cc:</codeph> recipients:
-      </p>
-    </context>
-    <steps-unordered>
-      <step>
-        <cmd>
-          Call the <codeph>setCc()</codeph> method on the Message.
-        </cmd>
-      </step>
-    </steps-unordered>
+  <conbody>
+    <p>
+      To set <codeph>Cc:</codeph> recipients, create the message object using either
+      <codeph>new Swift_Message( ... )</codeph> or <codeph>Swift_Message::newInstance( ... )</codeph>,
+      then call the <codeph>setCc()</codeph> method with a complete array of addresses, or use the
+      <codeph>addCc()</codeph> method to iteratively add recipients.
+    </p>
     
-    <result>
-      <p>
-        <codeph>Cc:</codeph> recipients are visible in the message headers and will
-        be seen by the other recipients.
-      </p>
-    </result>
+    <p>
+      The <codeph>setCc()</codeph> method accepts input in various formats as described in the
+      chapter, <xref href="addresses.xml" type="concept" />.  The <codeph>addCc()</codeph> method
+      takes either one or two parameters.  The first being the email address and the second optional
+      parameter being the name of the recipient.
+    </p>
+    
+    <p>
+      <codeph>Cc:</codeph> recipients are visible in the message headers and will
+      be seen by the other recipients.
+    </p>
+    
+    <note>
+      Multiple calls to <codeph>setCc()</codeph> will not add new recipients &#8211; each call overrides
+      the previous calls.  If you want to iteratively add Cc: recipients, use the <codeph>addCc()</codeph> method.
+    </note>
     
     <example id="setcc">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
+//Using setCc() to set all recipients in one go
 $message->setCc(array(
   'person1@example.org',
   'person2@otherdomain.org' => 'Person 2 Name',
@@ -60,8 +65,13 @@ $message->setCc(array(
   'person4@example.org',
   'person5@example.org' => 'Person 5 Name'
 ));
+
+//Using addCc() to add recipients iteratively
+$message->addCc('person1@example.org');
+$message->addCc('person2@example.org', 'Person 2 Name');
+
 ]]></codeblock>
     </example>
     
-  </taskbody>
-</task>
+  </conbody>
+</concept>

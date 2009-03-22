@@ -150,7 +150,7 @@
         operator "<codeph><![CDATA[->]]></codeph>" to do so.  If you've created a message object
         and called it <codeph>$message</codeph> then you'd set a subject on it like so:
         
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 require_once 'lib/swift_required.php';  
@@ -166,7 +166,7 @@ $message->setSubject('My subject');
         you can call if you want to take a look at what is going to be sent.  For example, if you
         <codeph><![CDATA[echo $message->toString();]]></codeph> you would see something like this:
         
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify"><![CDATA[
 Message-ID: <1230173678.4952f5eeb1432@swift.generated>
 Date: Thu, 25 Dec 2008 13:54:38 +1100
 Subject: Example subject

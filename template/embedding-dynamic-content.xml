@@ -73,7 +73,7 @@
     </result>
     
     <example id="embed_dynamic">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create your file contents in the normal way, but don't write them to disk
 $img_data = create_my_image_data();
 

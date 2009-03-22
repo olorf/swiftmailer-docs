@@ -56,7 +56,7 @@
     <p>
       You fetch the HeaderSet from a MIME entity like so:
     </p>
-    <codeblock><![CDATA[
+    <codeblock outputclass="kodify php"><![CDATA[
 
 $message = Swift_Message::newInstance();
 
@@ -80,7 +80,7 @@ $headers = $attachment->getHeaders();
       headers:
     </p>
     
-<codeblock><![CDATA[
+<codeblock outputclass="kodify php"><![CDATA[
 
 foreach ($headers->getAll() as $header) {
   printf("%s<br />\n", $header->getFieldName());
@@ -103,7 +103,7 @@ To
       method:
     </p>
     
-<codeblock><![CDATA[
+<codeblock outputclass="kodify php"><![CDATA[
 
 echo $headers->toString();
 
@@ -135,7 +135,7 @@ Content-Transfer-Encoding: quoted-printable
       <codeph>TYPE_PATH</codeph> which are defined in <codeph>Swift_Mime_Header</codeph>.
     </p>
     
-<codeblock><![CDATA[
+<codeblock outputclass="kodify php"><![CDATA[
 
 foreach ($headers->getAll() as $header) {
   switch ($header->getFieldType()) {

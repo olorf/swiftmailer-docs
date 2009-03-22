@@ -63,7 +63,7 @@
     
     <example id="setmaxlinelength">
       <title>Setting the Line Length</title>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $message->setMaxLineLength(1000);
 ]]></codeblock>
     </example>

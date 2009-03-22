@@ -61,7 +61,7 @@
     </result>
     
     <example id="setsender">
-<codeblock><![CDATA[$message->setSender('your@address.tld');]]></codeblock>
+<codeblock  outputclass="kodify php"><![CDATA[$message->setSender('your@address.tld');]]></codeblock>
     </example>
     
   </taskbody>

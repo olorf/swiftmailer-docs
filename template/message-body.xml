@@ -73,7 +73,7 @@
     
     <example id="setbody">
       <title>Setting the Body &#8211; and adding alternative body content</title>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Pass it as a parameter when you create the message
 $message = Swift_Message::newInstance('Subject here', 'My amazing body');  
 

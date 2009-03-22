@@ -62,7 +62,7 @@
     </steps-unordered>
     
     <example id="setreadreceiptto">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Indicate "High" priority
 $message->setPriority(2);
 ]]></codeblock>

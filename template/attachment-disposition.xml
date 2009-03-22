@@ -62,7 +62,7 @@
     </result>
     
     <example id="setdisposition">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create the attachment and call its setDisposition() method
 $attachment = Swift_Attachment::fromPath('/path/to/image.jpg')
   ->setDisposition('inline');

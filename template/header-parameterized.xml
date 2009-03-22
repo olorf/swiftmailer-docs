@@ -51,7 +51,7 @@
       like <codeph>addTextHeader()</codeph> but it also accepts an associative array
       of key-value parameters.
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -73,7 +73,7 @@ $headers->addParameterizedHeader(
       To change the parameters in the header, call the header's <codeph>setParameters()</codeph>
       method or the <codeph>setParameter()</codeph> method (note the pluralization).
     </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $type = $message->getHeaders()->getHeader('Content-Type');
@@ -93,7 +93,7 @@ $type->setParameter('charset', 'iso-8859-1');
       When output via <codeph>toString()</codeph>, a parameterized header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $type = $message->getHeaders()->getHeader('Content-Type');
@@ -119,7 +119,7 @@ Content-Type: text/html; charset=utf-8
       can be transmitted safely.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $attachment = Swift_Attachment::newInstance();

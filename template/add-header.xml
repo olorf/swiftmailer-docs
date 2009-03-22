@@ -62,7 +62,7 @@
     </result>
     
     <example id="addheader">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 
 //Adding a custom header to a message
 $message = Swift_Message::newInstance();

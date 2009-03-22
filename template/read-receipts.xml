@@ -62,7 +62,7 @@
     </result>
     
     <example id="setreadreceiptto">
-<codeblock><![CDATA[$message->setReadReceiptTo('your@address.tld');]]></codeblock>
+<codeblock  outputclass="kodify php"><![CDATA[$message->setReadReceiptTo('your@address.tld');]]></codeblock>
     </example>
     
   </taskbody>

@@ -66,7 +66,7 @@
     </result>
     
     <example id="attach_frompath">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create the attachment
 // * Note that you can technically leave the content-type parameter out
 $attachment = Swift_Attachment::fromPath('/path/to/image.jpg', 'image/jpeg');  

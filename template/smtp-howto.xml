@@ -69,7 +69,7 @@
     </result>
     
     <example id="using_smtp">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 require_once 'lib/swift_required.php';

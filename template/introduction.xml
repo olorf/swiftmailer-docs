@@ -26,10 +26,10 @@
     </metadata>
   </prolog>
   <body>
-    <p>
+    <note>
       This book refers to version 4 of the Swift Mailer library.  If you are looking for information
       about (the now deprecated) version 3, you should refer to the old wiki found online
       at <xref href="http://swiftmailer.org/wikidocs/" format="html" scope="external"/>.
-    </p>
+    </note>
   </body>
 </topic>

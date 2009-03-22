@@ -57,7 +57,7 @@
     </result>
     
     <example id="setfilename">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create the attachment and call its setFilename() method
 $attachment = Swift_Attachment::fromPath('/path/to/image.jpg')
   ->setFilename('cool.jpg');

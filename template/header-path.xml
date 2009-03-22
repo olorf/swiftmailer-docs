@@ -46,7 +46,7 @@
       <codeph>addPathHeader()</codeph> method.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $message = Swift_Message::newInstance();
@@ -62,7 +62,7 @@ $headers->addPathHeader('Your-Header-Name', 'person@example.org');
       method.
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $return = $message->getHeaders()->getHeader('Return-Path');
@@ -75,7 +75,7 @@ $return->setAddress('my-address@example.org');
       When output via <codeph>toString()</codeph>, a path header produces something like the following:
     </p>
     
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 $return = $message->getHeaders()->getHeader('Return-Path');

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="decorator-plugin-howto" xml:lang="en-us">
+  <title>Providing Your Own Replacements Lookup for the Decorator</title>
+  <shortdesc>
+    Filling an array with replacements may not be the best solution for providing
+    replacement information to the decorator.  If you have a more elegant algorithm
+    that performs replacement lookups on-the-fly you may provide your own implementation.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-March-22"/>
+      <revised modified="2009-March-22"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>decorator plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>decorator plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      Providing your own replacements lookup implementation for the Decorator is simply a matter
+      of passing an instance of <codeph>Swift_Plugins_Decorator_Replacements</codeph> to the
+      decorator plugin's constructor, rather than passing in an array.
+    </p>
+    
+    <p>
+      The Replacements interface is very simple to implement since it has just one method:
+      <codeph>getReplacementsFor($address)</codeph>.
+    </p>
+    
+    <p>
+      Imagine you want to look up replacements from a database on-the-fly, you might provide
+      an implementation that does this.  You need to create a small class.
+    </p>
+
+<codeblock outputclass="kodify php"><![CDATA[
+class DbReplacements implements Swift_Plugins_Decorator_Replacements {
+  public function getReplacementsFor($address) {
+    $sql = sprintf(
+      "SELECT * FROM user WHERE email = '%s'",
+      mysql_real_escape_string($address)
+    );
+    
+    $result = mysql_query($sql);
+    
+    if ($row = mysql_fetch_assoc($result)) {
+      return array(
+        '{username}'=>$row['username'],
+        '{password}'=>$row['password']
+      );
+    }
+  }
+}
+]]></codeblock>
+
+    <p>
+      Now all you need to do is pass an instance of your class into the Decorator plugin's
+      constructor instead of passing an array.
+    </p>
+    
+<codeblock outputclass="kodify php"><![CDATA[
+$decorator = new Swift_Plugins_DecoratorPlugin(new DbReplacements());
+
+$mailer->registerPlugin($decorator);
+
+]]></codeblock>
+    
+    <p>
+      For each message sent, the plugin will call your class' <codeph>getReplacementsFor()</codeph>
+      method to find the array of replacements it needs.
+    </p>
+    
+    <note>
+      If your lookup algorithm is case sensitive, you should transform the <codeph>$address</codeph>
+      argument as appropriate &#8211; for example by passing it through <codeph>strtolower()</codeph>.
+    </note>
+    
+  </conbody>
+</concept>

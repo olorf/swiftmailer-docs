@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
-  "../dtd/task.dtd">
-<task id="including" xml:lang="en-us">
-  <title>Including Swift Mailer Required Files</title>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="including" xml:lang="en-us">
+  <title>Including Swift Mailer (Autoloading)</title>
   <shortdesc>
     Swift Mailer uses an auto-loader so the only file you need to include is the
     <codeph>lib/swift_required.php</codeph> file.
@@ -15,7 +15,7 @@
     </copyright>
     <critdates>
       <created date="2009-January-04"/>
-      <revised modified="2009-January-04"/>
+      <revised modified="2009-March-22"/>
     </critdates>
     <metadata>
       <keywords>
@@ -26,32 +26,32 @@
       </keywords>
     </metadata>
   </prolog>
-  <taskbody>
-    <context>
-      <p>
-        To include the library:
-      </p>
-    </context>
-    <steps>
-      <step>
-        <cmd>
-          Put Swift Mailer somewhere accessible to your PHP scripts (this does not need to be in the web root).
-        </cmd>
-      </step>
-      <step>
-        <cmd>
-          Include, or require the <codeph>lib/swift_required.php</codeph> file.
-        </cmd>
-      </step>
-      <step>
-        <cmd>
-          Follow the remainder of the documentation for using the available components.
-        </cmd>
-      </step>
-    </steps>
+  <conbody>
+    <p>
+      To use Swift Mailer's autoloader:
+    </p>
     
-    <example id="quickexample">
-<codeblock><![CDATA[
+    <ol>
+      <li>
+        Put Swift Mailer somewhere accessible to your PHP scripts (this does not need to be in the web root).
+      </li>
+      <li>
+        Include, or require the <codeph>lib/swift_required.php</codeph> file.
+      </li>
+      <li>
+        Follow the remainder of the documentation for using the available components.
+      </li>
+    </ol>
+    
+    <note>
+      While Swift Mailer's autoloader is designed to play nicely with other autoloaders,
+      sometimes you may have a need to avoid using Swift Mailer's autoloader and use your own
+      instead.  Include the <codeph>swift_init.php</codeph> instead of the <codeph>swift_required.php</codeph>
+      if you need to do this.  The very minimum include is the <codeph>swift_init.php</codeph> file since
+      Swift Mailer will not work without the dependency injection this file sets up.
+    </note>
+    
+<codeblock  outputclass="kodify php"><![CDATA[
 <?php
 
 require_once '/path/to/swift-mailer/lib/swift_required.php';
@@ -59,7 +59,6 @@ require_once '/path/to/swift-mailer/lib/swift_required.php';
 /* rest of code goes here */
 
 ]]></codeblock>
-    </example>
     
-  </taskbody>
-</task>
+  </conbody>
+</concept>

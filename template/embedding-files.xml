@@ -76,7 +76,7 @@
     </result>
     
     <example id="embed_frompath">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Create the message
 $message = Swift_Message::newInstance('My subject');
 

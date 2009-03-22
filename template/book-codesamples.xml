@@ -33,7 +33,7 @@
     <p>
       A code sample will look like this:
     </p>
-    <codeblock><![CDATA[
+    <codeblock  outputclass="kodify php"><![CDATA[
 class AClass
 {
   ...

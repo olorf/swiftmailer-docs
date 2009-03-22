@@ -59,7 +59,7 @@
     </result>
     
     <example id="mailer_failures_byreference">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $mailer = Swift_Mailer::newInstance( ... );
 
 $message = Swift_Message::newInstance( ... )

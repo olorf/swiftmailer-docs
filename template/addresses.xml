@@ -32,21 +32,21 @@
         If you only wish to refer to a single email address (for example your <codeph>From:</codeph>
         address) then you can just use a string.
       </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $message->setFrom('some@address.tld');
 ]]></codeblock>
 
       <p>
         If you want to include a name then you must use an associative array.
       </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $message->setFrom(array('some@address.tld' => 'The Name'));
 ]]></codeblock>
 
       <p>
         If you want to include multiple addresses then you must use an array.
       </p>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $message->setTo(array('some@address.tld', 'other@address.tld'));
 ]]></codeblock>
 
@@ -56,7 +56,7 @@ $message->setTo(array('some@address.tld', 'other@address.tld'));
         array syntax.
       </p>
 
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 $message->setTo(array(
   'recipient-with-name@example.org' => 'Recipient Name One',
   'no-name@example.org', //Note that this is not a key-value pair

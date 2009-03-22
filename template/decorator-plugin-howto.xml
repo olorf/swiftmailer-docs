@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+  "../dtd/concept.dtd">
+<concept id="decorator-plugin-howto" xml:lang="en-us">
+  <title>Using the Decorator Plugin</title>
+  <shortdesc>
+    To use the Decorator plugin, simply create an associative array of replacements based
+    on email addresses and then use the mailer's <codeph>registerPlugin()</codeph> method
+    to add the plugin.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Corbyn</author>
+    <copyright>
+      <copyryear year="2009"/>
+      <copyrholder>Chris Corbyn</copyrholder>
+    </copyright>
+    <critdates>
+      <created date="2009-March-22"/>
+      <revised modified="2009-March-22"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>swift mailer</keyword>
+        <keyword>php</keyword>
+        <keyword>plugins</keyword>
+        <keyword>decorator plugin</keyword>
+        <indexterm>
+          plugins
+          <indexterm>decorator plugin</indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      First create an associative array of replacements based on the email addresses you'll be sending
+      the message to.
+    </p>
+    
+    <note>
+      The replacements array becomes a 2-dimensional array whose keys are the email addreses and whose values
+      are an associative array of replacements for that email address.  The curly braces used in this example
+      can be any type of syntax you choose, provided they match the placeholders in your email template.
+    </note>
+    
+<codeblock outputclass="kodify php"><![CDATA[
+$replacements = array();
+foreach ($users as $user) {
+  $replacements[$user['email']] = array(
+    '{username}'=>$user['username'],
+    '{password}'=>$user['password']
+  );
+}
+
+]]></codeblock>
+  
+    <p>
+      Now create an instance of the Decorator plugin using this array of replacements and then register it
+      with the Mailer.  Do this only once!
+    </p>
+    
+<codeblock outputclass="kodify php"><![CDATA[
+$decorator = new Swift_Plugins_DecoratorPlugin($replacements);
+
+$mailer->registerPlugin($decorator);
+
+]]></codeblock>
+    
+    <p>
+      When you create your message, replace elements in the body (and/or the subject line) with
+      your placeholders.
+    </p>
+    
+<codeblock outputclass="kodify php"><![CDATA[
+
+$message = Swift_Message::newInstance()
+  ->setSubject('Important notice for {username}')
+  ->setBody(
+    "Hello {username}, we have reset your password to {password}\n" .
+    "Please log in and change it at your earliest convenience."
+  )
+  ;
+  
+foreach ($users as $user) {
+  $message->addTo($user['email']);
+}
+
+]]></codeblock>
+    
+    <p>
+      When you send this message to each of your recipients listed in your <codeph>$replacements</codeph>
+      array they will receive a message customized for just themselves.  For example, the message used
+      above when received may appear like this to one user:
+    </p>
+    
+<codeblock><![CDATA[
+Subject: Important notice for smilingsunshine2009
+
+Hello smilingsunshine2009, we have reset your password to rainyDays
+Please log in and change it at your earliest convenience.
+
+]]></codeblock>
+
+    <p>
+      While another use may receive the message as:
+    </p>
+    
+<codeblock><![CDATA[
+Subject: Important notice for billy-bo-bob
+
+Hello billy-bo-bob, we have reset your password to dancingOctopus
+Please log in and change it at your earliest convenience.
+
+]]></codeblock>
+
+    <p>
+      While the decorator plugin provides a means to solve this problem, there are various ways you could
+      tackle this problem without the need for a plugin.  We're trying to come up with a better way ourselves
+      and while we have several (obvious) ideas we don't quite have the perfect solution to go ahead and
+      implement it.  Watch this space.
+    </p>
+    
+  </conbody>
+</concept>

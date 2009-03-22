@@ -70,7 +70,7 @@
     </result>
     
     <example id="modifyheader">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 
 $headers = $message->getHeaders();
 

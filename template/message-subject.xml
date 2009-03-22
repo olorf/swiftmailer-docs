@@ -46,7 +46,7 @@
     
     <example id="setsubject">
       <title>Setting the Subject Line</title>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Pass it as a parameter when you create the message
 $message = Swift_Message::newInstance('My amazing subject');  
 

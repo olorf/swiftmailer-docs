@@ -71,7 +71,7 @@
     </result>
     
     <example id="command_git-clone">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify"><![CDATA[
 chrisbook:~ chris$ cd source_code/
 chrisbook:source_code chris$ git clone git://github.com/swiftmailer/swiftmailer.git swiftmailer
 Initialized empty Git repository in /Users/chris/source_code/swiftmailer/.git/

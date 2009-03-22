@@ -69,7 +69,7 @@
     
     <example id="setcharset">
       <title>Setting the Charset</title>
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
 //Approach 1: Change the global setting (suggested)
 Swift_Preferences::getInstance()->setCharset('iso-8859-2');
 

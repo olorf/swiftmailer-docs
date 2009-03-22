@@ -65,7 +65,7 @@
     </result>
     
     <example id="setfrom">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify php"><![CDATA[
   
 //Set a single From: address
 $message->setFrom('your@address.tld');

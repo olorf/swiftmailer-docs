@@ -64,7 +64,7 @@
     </result>
     
     <example id="command_extract">
-<codeblock><![CDATA[
+<codeblock  outputclass="kodify"><![CDATA[
 chrisbook:build chris$ ls
 Swift-4.0.0-dev.tar.gz
 chrisbook:build chris$ tar xvzf Swift-4.0.0-dev.tar.gz 
